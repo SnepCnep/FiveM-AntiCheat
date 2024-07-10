@@ -9,6 +9,7 @@ This anticheat is build for a server where is develop but you can use it for you
 - Safe Server Events
 - Anti Weapon Spawn
 
+
 ### Not recommended for servers with Population on.
 - Anti Vehicle Spawn [Betá]
 - Anti Ped Spawn [Betá]

@@ -8,7 +8,6 @@ end
 AC.System:ExportHandler("CreatePed", SafeCreatePed)
 
 RegisterNetEvent("ac:cl:check:ped", function(entID)
-    print("Checking Ped")
     local ped = NetToPed(entID)
     local resource = GetEntityScript(ped)
 
@@ -32,7 +31,6 @@ end
 AC.System:ExportHandler("CreateObject", SafeCreateObject)
 
 RegisterNetEvent("ac:cl:check:object", function(entID)
-    print("Checking Object")
     local object = NetToObj(entID)
     local resource = GetEntityScript(object)
     local model = GetEntityModel(object)
@@ -61,7 +59,6 @@ end
 AC.System:ExportHandler("CreateVehicle", SafeCreateVehicle)
 
 RegisterNetEvent("ac:cl:check:vehicle", function(entID)
-    print("Checking Vehicle")
     local vehicle = NetToVeh(entID)
     local resource = GetEntityScript(veh)
 
