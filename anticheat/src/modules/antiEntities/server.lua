@@ -18,5 +18,5 @@ AddEventHandler('entityCreated', function(entity)
         entitytype = "object"
     end
     
-    TriggerClientEvent("anticheat:cl:check:".. entitytype, id, entID)
+    TriggerClientEvent("ac:cl:check:".. entitytype, id, entID)
 end)

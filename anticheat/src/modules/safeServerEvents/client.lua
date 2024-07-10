@@ -10,7 +10,7 @@ end
 
 AC.System:ExportHandler("TriggerServerEvent", SafeServerTrigger)
 
-RegisterNetEvent("ac:cl:checkServerEvent", function(eventName, resource)
+RegisterNetEvent("ac:cl:check:serverEvent", function(eventName, resource)
     if not TriggeredServerEvents[eventName] then
         AC.Player:banPlayer({
             reason = "Try to trigger a event!",

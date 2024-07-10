@@ -13,7 +13,7 @@ function RegisterSafeServer(resource, eventName)
             return
         end
 
-        TriggerClientEvent("ac:cl:checkServerEvent", source, eventName, (resource or "unkown"))
+        TriggerClientEvent("ac:cl:check:serverEvent", source, eventName, (resource or "unkown"))
     end)
 end
 

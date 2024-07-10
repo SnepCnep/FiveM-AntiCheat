@@ -2,9 +2,11 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'SnepCnep'
-description 'AntiCheat resource for FiveM'
+description 'AntiCheat resource for FiveM.'
 version '0.0.1'
 lua54 'yes'
+
+shared_script 'config.lua'
 
 client_scripts {
     'src/client/main.lua',
@@ -12,7 +14,7 @@ client_scripts {
 }
 
 server_scripts {
-    'config.lua',
+    'config.protect.lua',
     'src/server/main.lua',
     'src/server/installer.lua',
     'src/modules/**/server.lua',
