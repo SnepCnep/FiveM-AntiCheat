@@ -16,6 +16,8 @@ client_scripts {
 server_scripts {
     'config.protect.lua',
     'src/server/main.lua',
+    'src/server/banHandler.lua',
+    'src/server/updater.lua',
     'src/server/installer.lua',
     'src/modules/**/server.lua',
 }
