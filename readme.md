@@ -7,7 +7,7 @@ This anticheat is build for a server where is develop but you can use it for you
 
 ## Features
 - Safe Server Events
-- Anti Weapon Spawn
+- Anti Weapon Spawn ( Only ox_inventory supported)
 
 
 ### Not recommended for servers with Population on.
