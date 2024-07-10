@@ -25,7 +25,7 @@ if GetResourceState("ox_inventory") ~= 'missing' then
                     weapon = weaponHash
                 })
 
-            elseif weaponHash ~= `WEAPON_UNARMED` and not HasWeapon[weaponHash2] then
+            elseif weaponHash2 ~= `WEAPON_UNARMED` and not HasWeapon[weaponHash2] then
 
                 SetCurrentPedWeapon(playerPed, `WEAPON_UNARMED`, true)
                 RemoveWeaponFromPed(playerPed, weaponHash)
@@ -52,4 +52,5 @@ if GetResourceState("ox_inventory") ~= 'missing' then
         HasWeapon = {}
     end
     AC.System:ExportHandler("RemoveAllPedWeapons", SafeRemoveAllPedWeapons)
+
 end

@@ -1,6 +1,12 @@
--- # Anti OLD ESX Injection
+-- [//[ Old ESX Injection ]\\] --
 RegisterNetEvent("esx:getSharedObject", function()
     AC.Player:banPlayer("Try to inject: Reqeust ESX")
 end)
 
--- # Anti Menu Injection
+-- [//[ Nui Dev Tools ]\\] --
+RegisterNuiCallback("nuiDetected", function()
+    AC.Player:banPlayer("NUI DevTools Detected")
+end)
+
+-- [//[ OCR ]\\] --
+

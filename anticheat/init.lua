@@ -6,7 +6,7 @@ if isServerSide then
     local _RegisterNetEvent = RegisterNetEvent
 
     function RegisterNetEvent(eventName, func)
-        if GetResourceState("anticheat") == "started" and not eventName == "playerJoining" then
+        if GetResourceState("anticheat") == "started" and eventName ~= "playerJoining" then
             exports["anticheat"]:RegisterServerEvent(thisResource, eventName)
         end
 
@@ -16,7 +16,7 @@ if isServerSide then
     local _RegisterServerEvent = RegisterServerEvent
 
     function RegisterServerEvent(eventName)
-        if GetResourceState("anticheat") == "started" and not eventName == "playerJoining" then
+        if GetResourceState("anticheat") == "started" and eventName ~= "playerJoining" then
             exports["anticheat"]:RegisterServerEvent(thisResource, eventName)
         end
 
@@ -28,7 +28,7 @@ if not isServerSide then
     local _TriggerServerEvent = TriggerServerEvent
 
     function TriggerServerEvent(eventName, ...)
-        if GetResourceState("anticheat") == "started" and not eventName == "playerJoining" then
+        if GetResourceState("anticheat") == "started" and eventName ~= "playerJoining" then
             exports["anticheat"]:TriggerServerEvent(eventName)
         end
 
