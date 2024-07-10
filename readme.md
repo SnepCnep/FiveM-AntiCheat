@@ -1,5 +1,7 @@
 # AntiCheat - FiveM
 
+<span style="color:red">PLEASE DONT USE THIS YET, ITS NOT READY FOR PRODUCTION</span>
+
 This anticheat is build for a server where is develop but you can use it for your server too :)
 
 ## Author
