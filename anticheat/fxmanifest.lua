@@ -20,6 +20,11 @@ server_scripts {
     'src/modules/**/server.lua',
 }
 
+ui_page 'src/web/ui.html'
+
 files {
-    'init.lua'
+    'init.lua',
+    'src/web/ui.html',
+    'src/web/script.js',
+    'src/web/style.css',
 }
