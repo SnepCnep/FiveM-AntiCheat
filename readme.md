@@ -7,8 +7,8 @@ This anticheat is built for a server where it is developed, but you can use it f
 - SnepCnep
 
 ## Features
-- Safe Server Events
-- Anti Weapon Spawn (Only ox_inventory supported)
+- Safe Server Events [Beta]
+- Anti Weapon Spawn [Beta] (Only ox_inventory supported)
 
 ### Not recommended for servers with Population on.
 - Anti Vehicle Spawn [Beta]
