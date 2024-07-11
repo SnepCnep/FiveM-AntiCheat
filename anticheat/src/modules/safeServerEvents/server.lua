@@ -4,7 +4,7 @@ function RegisterSafeServer(resource, eventName)
     if not Config.AntiServerEvents then
         return
     end
-    
+
     if isEventProtected[eventName] then
         return
     end
@@ -22,9 +22,3 @@ function RegisterSafeServer(resource, eventName)
 end
 
 AC.System:ExportHandler("RegisterServerEvent", RegisterSafeServer)
-
-RegisterCommand("ShowListRegisterd", function()
-    for k, v in pairs(isEventProtected) do
-        print(k)
-    end
-end, false)

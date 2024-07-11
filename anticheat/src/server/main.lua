@@ -11,7 +11,7 @@ function print(message)
     _print("^7[^5ANTICHEAT^7] ^4- ^7" .. message .. "^7")
 end
 
--- [[ Events ]] --
+-- [//[ Events ]\\] --
 RegisterNetEvent("ac:sv:playerJoined", function()
     if AC.Players[source] then
         return
@@ -33,7 +33,7 @@ RegisterNetEvent("playerDropped", function(reason)
     print("^7PlayerDropped - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason .. "^7")
 end)
 
--- [[ Functions ]] --
+-- [//[ Functions ]\\] --
 function AC.Players:getPermissions(player)
     return {}
 end
@@ -53,3 +53,8 @@ function AC.System:ExportHandler(exportName, exportFunc)
         setCB(exportFunc)
     end)
 end
+
+-- [//[ Commands ]\\] --
+RegisterCommand("ShowListPlayers", function()
+
+end, false)
