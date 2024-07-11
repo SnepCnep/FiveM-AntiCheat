@@ -8,7 +8,7 @@ function print(message)
     if not message or type(message) ~= "string" then
         return
     end
-    _print("^7[^5ANTICHEAT^7] ^4- ^5" .. message .. "^0")
+    _print("^7[^5ANTICHEAT^7] ^4- ^7" .. message .. "^7")
 end
 
 -- [[ Events ]] --

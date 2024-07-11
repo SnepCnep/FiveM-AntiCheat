@@ -3,17 +3,28 @@ local getCurrentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version
 local githubUrl = "https://raw.githubusercontent.com/snepcnep/anticheat/main/version.json"
 
 CreateThread(function()
+    
     PerformHttpRequest(githubUrl, function(code, response, headers)
         if code == 200 and response then
             local req = json.decode(response)
+            print("\27[1;33m--------------------------------------------------------------------------")
             if getCurrentVersion ~= req.version then
-                _print("^2[AntiCheat]^7 A new version is available! Please update your resource. Current version: " .. getCurrentVersion .. " New version: " .. req.version .. "^7")
+                print("\27[1;34mSC-AntiCheat: \27[1;36mThere is a new version available!")
+                print("\27[1;36mPlease update to version: \27[1;37m" .. (req.version or "Unknown"))
             else
-                _print("^2[AntiCheat]^7 You are using the latest version of the resource!^7")
+                print("\27[1;34mSC-AntiCheat: \27[1;36mYou are running the latest version!")
             end
-            -- Need to add a clean text here :)
+            print("\27[1;33m--------------------------------------------------------------------------")
+            print("\27[1;32m-> Author  : \27[1;37m SnepCnep")
+            print("\27[1;32m-> Version : \27[1;37m " .. getCurrentVersion)
+            print("\27[1;32m-> Status  : \27[1;37m ".. (req.status or "Unknown"))
+            print("\27[1;33m--------------------------------------------------------------------------")
+            if GetCurrentResourceName() == "anticheat" then
+                print("\27[1;31m-> Please change the resource name instead of using the default name!^7")
+            end
         else
             print("^4 Failed to check for updates. Error code: " .. code .. "^7")
         end
     end, "GET", "", {["Content-Type"] = "application/json"})
+    
 end)
