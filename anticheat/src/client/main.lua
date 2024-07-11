@@ -29,9 +29,15 @@ end)
 
 -- [//[ Functions ]\\] --
 function AC.Player:hasPermission(perm)
-    if AC.Player.perms == nil then return false end
+    if AC.Player.perms["immune"] then
+        return true
+    end
+    
+    if AC.Player.perms[perm] then
+        return true
+    end
 
-    return AC.Player.perms[perm] or false
+    return false
 end
 
 ---@param banData table | string

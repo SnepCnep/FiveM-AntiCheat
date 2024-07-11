@@ -16,3 +16,19 @@ Config.AntiVehiclesSpawn = true
 -- [[ Misc ]] --
 Config.AntiGodmode = true
 Config.AntiSpactate = true
+
+-- [[ Permissions ]] --
+Config.Groups = {
+    ["management"] = {
+        ["immune"] = true
+    },
+    ["admin"] = {
+        ["godmode"] = true,
+        ["spectate"] = true
+    },
+    ["mod"] = {
+        ["godmode"] = true,
+        ["spectate"] = true
+    }
+}
+

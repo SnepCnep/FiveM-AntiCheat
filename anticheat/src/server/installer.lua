@@ -1,23 +1,23 @@
 -- [[ Commands ]] --
-RegisterCommand("ac", function(source, args)
-    if source == 0 then
-        if args[1] == "install" then
-            if args[2] == "confirm" then
-                Installer()
-            else
-                print("Please use ^0ac install confirm ^5to install all resources!")
-            end
-        elseif args[1] == "uninstall" then
-            if args[2] == "confirm" then
-                Uninstaller()
-            else
-                print("Please use ^0ac uninstall confirm ^5to uninstall all resources!")
-            end
-        else
-            print("This command doesn't exist! ( ac install / ac uninstall )")
-        end
-    end
-end, false)
+-- RegisterCommand("ac", function(source, args)
+--     if source == 0 then
+--         if args[1] == "install" then
+--             if args[2] == "confirm" then
+--                 Installer()
+--             else
+--                 print("Please use ^0ac install confirm ^5to install all resources!")
+--             end
+--         elseif args[1] == "uninstall" then
+--             if args[2] == "confirm" then
+--                 Uninstaller()
+--             else
+--                 print("Please use ^0ac uninstall confirm ^5to uninstall all resources!")
+--             end
+--         else
+--             print("This command doesn't exist! ( ac install / ac uninstall )")
+--         end
+--     end
+-- end, false)
 
 -- [[ Installer & Uninstaller ]] --
 
@@ -55,7 +55,7 @@ function Installer()
             end
         end
     end
-    print("We have installed ^0".. installcount .." ^5resources!")
+    print("We have installed ^3".. installcount .." ^0resources!")
     print("Restart the server to apply the changes!")
 end
 
@@ -93,6 +93,6 @@ function Uninstaller()
             end
         end
     end
-    print("We have uninstalled ^0".. uninstallcount .." ^5resources!")
+    print("We have uninstalled ^3".. installcount .." ^0resources!")
     print("Restart the server to apply the changes!")
 end

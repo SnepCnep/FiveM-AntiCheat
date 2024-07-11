@@ -54,7 +54,68 @@ function AC.System:ExportHandler(exportName, exportFunc)
     end)
 end
 
--- [//[ Commands ]\\] --
-RegisterCommand("ShowListPlayers", function()
+local RegisteredCommands = {}
+function AC.System:RegisterCommand(command, callback, perms, consoleOnly)
+    if not command or not callback then
+        return
+    end
+    if RegisteredCommands[command] then
+        return
+    end
+    RegisteredCommands[command] = {
+        perms = (perms or "console"), -- console means only console can use this command
+        consoleOnly = (consoleOnly or true),
+        callback = callback,
+    }
+end
 
+-- [//[ Commands ]\\] --
+RegisterCommand("ac", function(source, args)
+    local command = RegisteredCommands[args[1]]
+    if command then
+        if source == 0 and (not command.consoleOnly or command.consoleOnly == true) then
+            command.callback(source, args)
+        elseif source ~= 0 and command.perms ~= "console" then
+            if AC.Players:checkPermission(source, command.perms) then
+                command.callback(source, args)
+            else
+                print("You don't have permission to use this command!")
+            end
+        else
+            print("This command is only available for console!")
+        end
+    else
+        print("This command doesn't exist!")
+    end
 end, false)
+
+AC.System:RegisterCommand("install", function(source, args)
+    if args[2] == "confirm" then
+        Installer()
+    else
+        print("Please use ^3ac install confirm ^0to install all resources!")
+    end
+end, "console", true)
+
+AC.System:RegisterCommand("uninstall", function(source, args)
+    if args[2] == "confirm" then
+        Uninstaller()
+    else
+        print("Please use ^3ac uninstall confirm ^0to uninstall all resources!")
+    end
+end, "console", true)
+
+AC.System:RegisterCommand("addadmin", function(source, args)
+    print("AddAdmin command executed!")
+end, "console", true)
+
+AC.System:RegisterCommand("help", function(source, args)
+    print("^3-----------------------------[[ ^5Anticheat Help ^3]]-----------------------------^0")
+    print("ac install confirm - Install all resources")
+    print("ac uninstall confirm - Uninstall all resources")
+    print("ac setadmin [ID] [GROUP] - Add a player as admin (user = reset)")
+    print("ac removeadmin [ID or Identifier] - Remove a player from admin group")
+    print("ac unban [BANID] - Unban a player")
+    print("ac baninfo [BANID] - Get information about a ban")
+    print("^3-------------------------------------------------------------------------------^0")
+end, "console", true)
