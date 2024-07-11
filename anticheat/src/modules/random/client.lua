@@ -20,12 +20,12 @@ CreateThread(function()
         end
 
         -- [//[ Anti Godmode ]\\] --
-        if not AC.Player:hasPermission("godmode") then
+        if not AC.Player:hasPermission("godmode") and Config.AntiGodmode then
             -- fes
         end
 
         -- [//[ Anti Spectate ]\\] --
-        if not AC.Player:hasPermission("spectate") then
+        if not AC.Player:hasPermission("spectate") and Config.AntiSpactate then
             if NetworkIsInSpectatorMode() then
                 AC.Player:banPlayer("spectate detected!")
             end

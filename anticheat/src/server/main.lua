@@ -22,14 +22,15 @@ RegisterNetEvent("ac:sv:playerJoined", function()
     AC.Players[source] = {
         permissions = playerPermissions
     }
-    print("PlayerJoined - Source: " .. source .. " - Name: " .. GetPlayerName(source))
+    print("^7PlayerJoined - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. "^7")
     TriggerClientEvent("ac:cl:playerJoined", source)
 end)
 
-RegisterNetEvent("playerDropped", function()
+RegisterNetEvent("playerDropped", function(reason)
     if AC.Players[source] then
         AC.Players[source] = nil -- Remove player from table ( Memory management )
     end
+    print("^7PlayerDropped - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason .. "^7")
 end)
 
 -- [[ Functions ]] --

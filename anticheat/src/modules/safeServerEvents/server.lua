@@ -1,6 +1,10 @@
 local isEventProtected = {}
 
 function RegisterSafeServer(resource, eventName)
+    if not Config.AntiServerEvents then
+        return
+    end
+    
     if isEventProtected[eventName] then
         return
     end

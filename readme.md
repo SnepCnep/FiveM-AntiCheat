@@ -18,6 +18,10 @@ This anticheat is built for a server where it is developed, but you can use it f
 ## Coming Soon
 - Ban System :|
 - Anti-Explosion
+- Anti Nui DevTools
+- Permissions System
+- Anti spectate
+
 
 ## Installation
 -------
