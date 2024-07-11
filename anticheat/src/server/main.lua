@@ -23,7 +23,7 @@ RegisterNetEvent("ac:sv:playerJoined", function()
         permissions = playerPermissions
     }
     print("^7PlayerJoined - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. "^7")
-    TriggerClientEvent("ac:cl:playerJoined", source)
+    TriggerClientEvent("ac:cl:playerJoined", source, playerPermissions)
 end)
 
 RegisterNetEvent("playerDropped", function(reason)
@@ -34,8 +34,26 @@ RegisterNetEvent("playerDropped", function(reason)
 end)
 
 -- [//[ Functions ]\\] --
-function AC.Players:getPermissions(player)
-    return {}
+function AC.Players:getPermissions(source)
+    if not GetPlayerName(source) then
+        return {}
+    end
+
+    local playerGroup = "user"
+    for _, Identifier in ipairs(GetPlayerIdentifiers(source)) do
+        for admins, group in pairs(Config.Admins) do
+            if Identifier == admins then
+                playerGroup = group
+                break
+            end
+        end 
+    end
+
+    if not Config.Groups[playerGroup] then
+        return {}
+    end
+
+    return Config.Groups[playerGroup]
 end
 
 function AC.Players:checkPermission(source, permission)

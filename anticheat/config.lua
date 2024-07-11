@@ -15,13 +15,12 @@ Config.AntiVehiclesSpawn = true
 
 -- [[ Misc ]] --
 Config.AntiGodmode = true
-Config.AntiSpactate = true
+Config.AntiSpectate = true
 
 -- [[ Permissions ]] --
 Config.Groups = {
     ["management"] = {
-        ["godmode"] = true,
-        ["spectate"] = true
+        ["immune"] = true
     },
     ["admin"] = {
         ["godmode"] = true,
@@ -30,10 +29,16 @@ Config.Groups = {
     ["mod"] = {
         ["godmode"] = true,
         ["spectate"] = true
+    },
+    ["testGroup"] = {
+        ["immune"] = true,
+        ["godmode"] = true,
+        ["spectate"] = true,
+        ["noclip"] = true
     }
 }
 
 Config.Admins = {
-    -- Example: ["discord:630029784302485524"] = "admin
+    -- Example: ["discord:630029784302485524"] = "admin"
 }
 

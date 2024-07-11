@@ -1,4 +1,3 @@
-Config = {}
 AC = {}
 AC.Player = {}
 AC.System = {}
@@ -14,14 +13,12 @@ CreateThread(function()
 end)
 -- [//[ Events ]\\] --
 
-RegisterNetEvent("ac:cl:playerJoined", function(reqConfig, reqPerms)
+RegisterNetEvent("ac:cl:playerJoined", function(reqPerms)
     local res = GetInvokingResource()
     if res ~= nil then return end
 
     if AC.Player.isLoaded then return end
 
-
-    Config = reqConfig
     AC.Player.perms = reqPerms or {}
     AC.Player.isLoaded = true
     print("AC: Loaded")
@@ -32,7 +29,7 @@ function AC.Player:hasPermission(perm)
     if AC.Player.perms["immune"] then
         return true
     end
-    
+
     if AC.Player.perms[perm] then
         return true
     end

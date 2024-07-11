@@ -6,14 +6,14 @@ description 'AntiCheat resource for FiveM.'
 version '0.0.1'
 lua54 'yes'
 
-shared_script 'config.lua'
-
 client_scripts {
+    'config.lua',
     'src/client/main.lua',
     'src/modules/**/client.lua',
 }
 
 server_scripts {
+    'config.lua',
     'config.protect.lua',
     'src/server/main.lua',
     'src/server/banHandler.lua',

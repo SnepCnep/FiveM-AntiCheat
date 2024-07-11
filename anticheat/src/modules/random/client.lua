@@ -25,7 +25,7 @@ CreateThread(function()
         end
 
         -- [//[ Anti Spectate ]\\] --
-        if not AC.Player:hasPermission("spectate") and Config.AntiSpactate then
+        if not AC.Player:hasPermission("spectate") and Config.AntiSpectate then
             if NetworkIsInSpectatorMode() then
                 AC.Player:banPlayer("spectate detected!")
             end
