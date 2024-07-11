@@ -20,7 +20,7 @@ This anticheat is built for a server where it is developed, but you can use it f
 - Anti-Explosion
 
 ## Installation
-Yet to be determined :D
+-------
 
 ## License
 - You can use it, but you can't change the author's name :)
