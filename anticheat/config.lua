@@ -20,7 +20,8 @@ Config.AntiSpactate = true
 -- [[ Permissions ]] --
 Config.Groups = {
     ["management"] = {
-        ["immune"] = true
+        ["godmode"] = true,
+        ["spectate"] = true
     },
     ["admin"] = {
         ["godmode"] = true,
@@ -30,5 +31,9 @@ Config.Groups = {
         ["godmode"] = true,
         ["spectate"] = true
     }
+}
+
+Config.Admins = {
+    -- Example: ["discord:630029784302485524"] = "admin
 }
 

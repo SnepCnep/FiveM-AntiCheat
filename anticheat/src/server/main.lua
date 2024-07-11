@@ -105,10 +105,6 @@ AC.System:RegisterCommand("uninstall", function(source, args)
     end
 end, "console", true)
 
-AC.System:RegisterCommand("addadmin", function(source, args)
-    print("AddAdmin command executed!")
-end, "console", true)
-
 AC.System:RegisterCommand("help", function(source, args)
     print("^3-----------------------------[[ ^5Anticheat Help ^3]]-----------------------------^0")
     print("ac install confirm - Install all resources")

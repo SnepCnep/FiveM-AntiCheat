@@ -38,7 +38,8 @@ if GetResourceState("ox_inventory") ~= 'missing' then
                 end
             end
         end)
-    end 
+    end
+    
     function SafeRemoveWeaponFromPed(hash)
         HasWeapon[hash] = nil
     end
