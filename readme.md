@@ -19,7 +19,7 @@ For all the preview, check the [preview.md](preview.md) file.
 ## Questions
 
 ### Free AntiCheat?
-- Yes, it's free. But how more likes on the repository, how more features will be added.
+- Yes, it's free. But how more likes/star on the repository, how more features will be added.
 
 ### Cloud Panel?
 - No, because it's a free project. So i will not be add in the AntiCheat.

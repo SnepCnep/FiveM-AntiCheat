@@ -93,6 +93,6 @@ function Uninstaller()
             end
         end
     end
-    print("We have uninstalled ^3".. installcount .." ^0resources!")
+    print("We have uninstalled ^3".. uninstallcount .." ^0resources!")
     print("Restart the server to apply the changes!")
 end

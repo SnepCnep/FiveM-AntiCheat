@@ -69,7 +69,7 @@ AC.System:ExportHandler("CreateVehicle", SafeCreateVehicle)
 if Config.AntiVehiclesSpawn then
     RegisterNetEvent("ac:cl:check:vehicle", function(entID)
         local vehicle = NetToVeh(entID)
-        local resource = GetEntityScript(veh)
+        local resource = GetEntityScript(vehicle)
 
         if not CreatedVehicles[vehicle] and resource ~= nil then
             DeleteEntity(vehicle)
