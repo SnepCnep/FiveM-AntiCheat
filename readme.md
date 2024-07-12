@@ -1,8 +1,10 @@
 # AntiCheat - FiveM
 This is a anticheat for FiveM servers. It's still in development, so it's not recommended to use it in production.
 
-## Author 
-- SnepCnep
+## Status/Information
+- Author: `SnepCnep`
+- Development: `Beta`
+- Version: `0.1.0`
 
 ## Features
 For all the features, check the [features.md](features.md) file.
@@ -14,7 +16,7 @@ For the installation, check the [installation.md](installation.md) file.
 ## Questions
 
 ### Free AntiCheat?
--Yes, it's free. But how more likes on the repository, how more features will be added.
+- Yes, it's free. But how more likes on the repository, how more features will be added.
 
 ### Cloud Panel?
 - No, because it's a free project. So i will not be add in the AntiCheat.
