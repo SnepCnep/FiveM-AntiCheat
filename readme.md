@@ -1,35 +1,37 @@
-# PLEASE DONT USE THIS YET, ITS NOT READY FOR PRODUCTION
 # AntiCheat - FiveM
+This is a anticheat for FiveM servers. It's still in development, so it's not recommended to use it in production.
 
-This anticheat is built for a server where it is developed, but you can use it for your server too :)
-
-## Author
+## Author 
 - SnepCnep
 
 ## Features
-- Permissions System [New]
-- Safe Server Events [Beta]
-- Anti Weapon Spawn [Beta] (Only ox_inventory supported)
-- Anti Spectate
-- Anti Godmode
-- Anti Freecam [Beta]
-- Anti Thermal/Nigth Vision
+For all the features, check the [features.md](features.md) file.
 
-### Not recommended for servers with Population on.
-- Anti Vehicle Spawn [Beta]
-- Anti Ped Spawn [Beta]
-- Anti Prop Spawn [Beta]
-
-## Coming Soon
-- Ban System :|
-- Anti Explosion
-- Anti Nui DevTools
-- Anti Teleport
-- Anti Stop/Start Resource
+## installation
+For the installation, check the [installation.md](installation.md) file.
 
 
-## Installation
--------
+## Questions
+
+### Free AntiCheat?
+-Yes, it's free. But how more likes on the repository, how more features will be added.
+
+### Cloud Panel?
+- No, because it's a free project. So i will not be add in the AntiCheat.
+
+### How to report a bug?
+- If you found a bug, please open a issue on the repository.
+
+### How to request a feature?
+- If you want to request a feature, please open a issue on the repository.
+
+### Can i rename the resource?
+- Yes you can, but you can't change the author's name.
+
+### Can i change the code?
+- Yes you can, but you can't change the author's name.
+
+
 
 ## License
 - You can use it, but you can't change the author's name :)

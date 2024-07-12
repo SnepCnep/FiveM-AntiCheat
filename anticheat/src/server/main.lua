@@ -33,6 +33,13 @@ RegisterNetEvent("playerDropped", function(reason)
     print("^7PlayerDropped - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason .. "^7")
 end)
 
+RegisterNetEvent("ac:sv:banPlayer", function(banData)
+    if not AC.Players[source] then
+        return
+    end
+
+end)
+
 -- [//[ Functions ]\\] --
 function AC.Players:getPermissions(source)
     if not GetPlayerName(source) then

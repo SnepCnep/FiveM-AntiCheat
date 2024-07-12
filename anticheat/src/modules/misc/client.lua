@@ -68,7 +68,9 @@ CreateThread(function()
 
         -- [//[ Anti Invisibility ]\\] --
         
+        if not AC.Player:hasPermission("invisible") and Config.AntiInvisibility then
 
+        end
 
 
     end

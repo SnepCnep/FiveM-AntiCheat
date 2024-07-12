@@ -13,9 +13,12 @@ Config.AntiPedsSpawn = true
 Config.AntiPropsSpawn = true
 Config.AntiVehiclesSpawn = true
 
+
 -- [[ Misc ]] --
 Config.AntiGodmode = true
 Config.AntiSpectate = true
+Config.AntiInvisibility = true
+
 
 -- [[ Permissions ]] --
 Config.Groups = {
