@@ -1,6 +1,7 @@
 ------------------------------------------------------------------------------
 -- # Basic Checks 
 ------------------------------------------------------------------------------
+local Cache = {}
 
 CreateThread(function()
     AC.System:AwaitForLoad() -- Wait for the system & Player to load!
