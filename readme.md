@@ -5,6 +5,7 @@ This is a anticheat for FiveM servers. It's still in development, so it's not re
 - Author: `SnepCnep`
 - Development: `Beta`
 - Version: `0.1.0`
+- Discord: SnepCnep#0
 
 ## Features
 For all the features, check the [features.md](features.md) file.
@@ -12,6 +13,8 @@ For all the features, check the [features.md](features.md) file.
 ## installation
 For the installation, check the [installation.md](installation.md) file.
 
+## Preview
+For all the preview, check the [preview.md](preview.md) file.
 
 ## Questions
 
