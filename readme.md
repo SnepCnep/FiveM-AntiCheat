@@ -3,9 +3,9 @@ This is a anticheat for FiveM servers. It's still in development, so it's not re
 
 ## Status/Information
 - Author: `SnepCnep`
-- Development: `Beta`
+- Development: `Development`
 - Version: `0.1.0`
-- Discord: SnepCnep#0
+- Discord: `SnepCnep` - For support, please open a issue on the repository.
 
 ## Features
 For all the features, check the [features.md](features.md) file.
