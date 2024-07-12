@@ -7,10 +7,13 @@ This anticheat is built for a server where it is developed, but you can use it f
 - SnepCnep
 
 ## Features
+- Permissions System [New]
 - Safe Server Events [Beta]
 - Anti Weapon Spawn [Beta] (Only ox_inventory supported)
-- Permissions System
-- Anti spectate [Beta]
+- Anti Spectate
+- Anti Godmode
+- Anti Freecam [Beta]
+- Anti Thermal/Nigth Vision
 
 ### Not recommended for servers with Population on.
 - Anti Vehicle Spawn [Beta]
@@ -19,8 +22,10 @@ This anticheat is built for a server where it is developed, but you can use it f
 
 ## Coming Soon
 - Ban System :|
-- Anti-Explosion
+- Anti Explosion
 - Anti Nui DevTools
+- Anti Teleport
+- Anti Stop/Start Resource
 
 
 ## Installation
