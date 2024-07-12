@@ -8,7 +8,6 @@ function RegisterSafeServer(resource, eventName)
     if isEventProtected[eventName] then
         return
     end
-
     isEventProtected[eventName] = true
 
 
