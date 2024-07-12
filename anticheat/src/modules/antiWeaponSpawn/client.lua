@@ -10,6 +10,8 @@ if GetResourceState("ox_inventory") ~= 'missing' then
         end)
 
         CreateThread(function()
+            AC.System:AwaitForLoad()
+
             while true do
                 Wait(1000)
                 local playerPed = PlayerPedId()
