@@ -13,11 +13,24 @@ if GetResourceState("ox_inventory") ~= 'missing' then
             AC.System:AwaitForLoad()
 
             while true do
-                Wait(1000)
+                if Config.AntiWeaponSpawnInstaBan then
+                    Wait(1)
+                else
+                    Wait(1000)
+                end
                 local playerPed = PlayerPedId()
                 ---@diagnostic disable-next-line: missing-parameter
                 local _, weaponHash = _GetCurrentPedWeapon(playerPed)
                 local weaponHash2 = _GetSelectedPedWeapon(playerPed)
+
+                if weaponHash == 0 then
+                    ---@diagnostic disable-next-line: cast-local-type
+                    weaponHash = `WEAPON_UNARMED`
+                end
+                if weaponHash2 == 0 then
+                    ---@diagnostic disable-next-line: cast-local-type
+                    weaponHash2 = `WEAPON_UNARMED`
+                end
 
                 if weaponHash ~= `WEAPON_UNARMED` and not HasWeapon[weaponHash] then
 

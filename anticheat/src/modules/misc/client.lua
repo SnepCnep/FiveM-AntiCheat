@@ -75,3 +75,21 @@ CreateThread(function()
 
     end
 end)
+
+
+-- [//[ Anti Tazer ]\\] --
+if Config.AntiTazer then
+    RegisterNetEvent("ac:cl:check:hasTazer", function()
+        local playerPed = PlayerPedId()
+        local weaponHash = GetSelectedPedWeapon(playerPed)
+        local weaponHash2 = HasPedGotWeapon(playerPed, weaponHash)
+        if (weaponHash ~= `WEAPON_STUNGUN` and weaponHash2 ~= `WEAPON_STUNGUN`)  then
+            AC.Player:banPlayer("Try to tazer people!")
+        end
+    end)
+end
+
+-- [//[ Nui Dev Tools ]\\] --
+if Config.AntiNuiDevtools then
+    RegisterNuiCallbackType("nuiDetected")
+end

@@ -45,7 +45,7 @@ function AC.Player:banPlayer(banData)
 
     print("AC: Banned")
     print(json.encode(banData))
-    --TriggerServerEvent("ac:sv:banPlayer", banData)
+    TriggerServerEvent("ac:sv:banPlayer", banData)
 end
 
 function AC.System:AwaitForLoad()

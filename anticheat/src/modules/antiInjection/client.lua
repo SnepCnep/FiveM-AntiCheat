@@ -5,10 +5,5 @@ if Config.AntiOldESX then
     end)
 end
 
--- [//[ Nui Dev Tools ]\\] --
-RegisterNuiCallback("nuiDetected", function()
-    AC.Player:banPlayer("NUI DevTools Detected")
-end)
-
 -- [//[ OCR ]\\] --
 
