@@ -8,13 +8,13 @@ This is a anticheat for FiveM servers. It's still in development, so it's not re
 - Discord: `SnepCnep` - For support, please open a issue on the repository.
 
 ## Features
-For all the features, check the [features.md](features.md) file.
+For all the features, check the [features.md](documention/features.md) file.
 
 ## installation
-For the installation, check the [installation.md](installation.md) file.
+For the installation, check the [installation.md](documention/installation.md) file.
 
 ## Preview
-For all the preview, check the [preview.md](preview.md) file.
+For all the preview, check the [preview.md](documention/preview.md) file.
 
 ## Questions
 
@@ -41,4 +41,4 @@ For all the preview, check the [preview.md](preview.md) file.
 ## License
 - You can use it, but you can't change the author's name :)
 
-This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the GNU GENERAL PUBLIC LICENSE - You can find the the resource!

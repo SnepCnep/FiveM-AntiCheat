@@ -1,4 +1,12 @@
--- EveryThing behind the banPlayer Function :)
+local bannedPlayers = {}
+
+CreateThread(function()
+    local bansFile = LoadResourceFile(GetCurrentResourceName(), "src/data/bans.json")
+    if bansFile then
+        bannedPlayers = json.decode(bansFile)
+    end
+end)
+
 RegisterNetEvent("ac:sv:banPlayer", function(banData)
     if not AC.Players[source] then
         return
