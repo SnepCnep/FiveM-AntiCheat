@@ -22,7 +22,6 @@ RegisterNetEvent("ac:cl:playerJoined", function(reqPerms)
 
     AC.Player.perms = reqPerms or {}
     AC.Player.isLoaded = true
-    print("AC: Loaded")
 end)
 
 -- [//[ Functions ]\\] --
