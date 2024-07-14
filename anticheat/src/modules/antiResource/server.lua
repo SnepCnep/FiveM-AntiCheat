@@ -1,5 +1,5 @@
 ------------------------------------------------------------------
--- ## Geen idee waarom ik dit gemaakt heb :D
+-- ## Geen idee waarom ik dit gemaakt heb :D | NEED TESTING
 ------------------------------------------------------------------
 
 RegisterNetEvent("ac:sv:resourceStart", function(res)
