@@ -6,6 +6,7 @@ CreateThread(function()
     while true do
         Wait(0)
         if NetworkIsSessionStarted() then
+            Wait(500)
             TriggerServerEvent("ac:sv:playerJoined")
             break
         end
@@ -44,6 +45,14 @@ function AC.Player:banPlayer(banData)
     end
 
     TriggerServerEvent("ac:sv:banPlayer", banData)
+end
+
+function AC.Player:kickPlayer(reason)
+    if AC.Player:hasPermission("immune") then
+        return 
+    end
+
+    TriggerServerEvent("ac:sv:kickPlayer", banData)
 end
 
 function AC.System:AwaitForLoad()

@@ -3,7 +3,6 @@ Config = {}
 -- [[ Injection ]] --
 Config.AntiOldESX = true
 
-
 -- [[ Protection ]] --
 Config.AntiServerEvents = true
 
@@ -15,7 +14,6 @@ Config.AntiPedsSpawn = true
 Config.AntiPropsSpawn = true
 Config.AntiVehiclesSpawn = true
 
-
 -- [[ Misc ]] --
 Config.AntiGodmode = true
 Config.AntiSpectate = true
@@ -23,28 +21,20 @@ Config.AntiInvisibility = true
 Config.AntiNuiDevtools = true
 Config.AntiTazer = true
 
-
 -- [[ Permissions ]] --
-Config.Groups = {
-    ["management"] = {
-        ["immune"] = true
-    },
-    ["admin"] = {
-        ["godmode"] = true,
-        ["spectate"] = true
-    },
-    ["mod"] = {
-        ["godmode"] = true,
-        ["spectate"] = true
-    },
-    ["testGroup"] = {
-        ["immune"] = true,
-        ["godmode"] = true,
-        ["spectate"] = true,
-        ["noclip"] = true
-    }
-}
+--[[
+    ## All permissions:
 
-Config.Admins = {
-    -- Example: ["discord:630029784302485524"] = "admin"
-}
+    immune
+    godmode
+    spectate
+    noclip
+    invisible
+
+]]
+--[[
+    ## ACE Permission Example:
+
+    add_ace group.admin "anticheat.immune" allow
+
+]]

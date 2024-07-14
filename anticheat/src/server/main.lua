@@ -20,7 +20,8 @@ RegisterNetEvent("ac:sv:playerJoined", function()
     local playerPermissions = AC.Players:getPermissions(source)
 
     AC.Players[source] = {
-        permissions = playerPermissions
+        permissions = playerPermissions,
+        name = (GetPlayerName(source) or "Unknown")
     }
     print("^2PlayerJoined^7 - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. "^7")
     TriggerClientEvent("ac:cl:playerJoined", source, playerPermissions)
@@ -34,34 +35,43 @@ RegisterNetEvent("playerDropped", function(reason)
 end)
 
 -- [//[ Functions ]\\] --
+local permissions = {
+    "immune",
+    "godmode",
+    "spectate",
+    "noclip",
+    "invisible"
+}
+
 function AC.Players:getPermissions(source)
-    if not GetPlayerName(source) then
-        return {}
+    while not GetPlayerName(source) do
+        Wait(100)
     end
 
-    local playerGroup = "user"
-    for _, Identifier in ipairs(GetPlayerIdentifiers(source)) do
-        for admins, group in pairs(Config.Admins) do
-            if Identifier == admins then
-                playerGroup = group
-                break
-            end
-        end 
+    if IsPlayerAceAllowed(source, "anticheat.immune") then
+        return { immune = true }
     end
 
-    if not Config.Groups[playerGroup] then
-        return {}
+    local playerPermissions = {}
+    for i = 1, #permissions do
+        if IsPlayerAceAllowed(source, "anticheat." .. permissions[i]) then
+            playerPermissions[permissions[i]] = true
+        end
     end
 
-    return Config.Groups[playerGroup]
+    return playerPermissions
 end
 
 function AC.Players:checkPermission(source, permission)
+
     if AC.Players[source] then
         if AC.Players[source].permissions[permission] then
             return true
         end
+    elseif IsPlayerAceAllowed(source, "anticheat." .. permission) then
+        return true
     end
+
     return false
 end
 
