@@ -29,4 +29,5 @@ files {
     'src/web/ui.html',
     'src/web/script.js',
     'src/web/style.css',
+    'license'
 }

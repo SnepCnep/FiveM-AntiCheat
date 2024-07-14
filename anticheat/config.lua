@@ -48,4 +48,3 @@ Config.Groups = {
 Config.Admins = {
     -- Example: ["discord:630029784302485524"] = "admin"
 }
-

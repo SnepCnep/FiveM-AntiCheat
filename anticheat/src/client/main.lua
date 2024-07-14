@@ -43,8 +43,6 @@ function AC.Player:banPlayer(banData)
         return 
     end
 
-    print("AC: Banned")
-    print(json.encode(banData))
     TriggerServerEvent("ac:sv:banPlayer", banData)
 end
 

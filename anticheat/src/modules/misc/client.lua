@@ -67,7 +67,6 @@ CreateThread(function()
         end
 
         -- [//[ Anti Invisibility ]\\] --
-        
         if not AC.Player:hasPermission("invisible") and Config.AntiInvisibility then
 
         end
@@ -76,13 +75,12 @@ CreateThread(function()
     end
 end)
 
-
 -- [//[ Anti Tazer ]\\] --
 if Config.AntiTazer then
     RegisterNetEvent("ac:cl:check:hasTazer", function()
         local playerPed = PlayerPedId()
         local weaponHash = GetSelectedPedWeapon(playerPed)
-        local weaponHash2 = HasPedGotWeapon(playerPed, weaponHash)
+        local weaponHash2 = HasPedGotWeapon(playerPed, weaponHash, false)
         if (weaponHash ~= `WEAPON_STUNGUN` and weaponHash2 ~= `WEAPON_STUNGUN`)  then
             AC.Player:banPlayer("Try to tazer people!")
         end
@@ -91,5 +89,7 @@ end
 
 -- [//[ Nui Dev Tools ]\\] --
 if Config.AntiNuiDevtools then
-    RegisterNuiCallbackType("nuiDetected")
+    RegisterNuiCallback("nuiDetected", function()
+        AC.Player:banPlayer("Nui Devtools detected!")
+    end)
 end

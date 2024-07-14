@@ -4,11 +4,11 @@ RegisterNetEvent("ac:sv:banPlayer", function(banData)
         return
     end
     if not banData then
-        banData = { reason = "No reason provided", sideAction = "client" }
-    elseif type(banData) ~= "table" then
-        banData = { reason = banData, sideAction = "client" }
-    elseif not banData.sideAction and type(type) == "table" then
-        banData.sideAction = "client"
+        banData.reason = "No reason provided"
+    elseif banData and not banData.reason and type(banData) == "string" then
+        banData.reason = banData
+    elseif banData and not banData.reason and type(banData) == "table" then
+        banData.reason = "No reason provided"
     end
 
     AC.Players:banPlayer(source, banData)
