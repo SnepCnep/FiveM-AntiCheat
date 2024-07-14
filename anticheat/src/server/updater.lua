@@ -1,6 +1,6 @@
 -- [//[ Update Checker ]\\] --
 local getCurrentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version', 0) or "1.0.0"
-local githubUrl = "https://raw.githubusercontent.com/snepcnep/anticheat/main/version.json"
+local githubUrl = "https://raw.githubusercontent.com/snepcnep/anticheat/main/anticheat/src/data/version.json"
 
 CreateThread(function()
     

@@ -1,6 +1,10 @@
+-- [//[ Variables ]\\] --
+
 AC = {}
 AC.Player = {}
 AC.System = {}
+
+-- [//[ Threads ]\\] --
 
 CreateThread(function()
     while true do
@@ -12,6 +16,7 @@ CreateThread(function()
         end
     end
 end)
+
 -- [//[ Events ]\\] --
 
 RegisterNetEvent("ac:cl:playerJoined", function(reqPerms)
@@ -25,6 +30,9 @@ RegisterNetEvent("ac:cl:playerJoined", function(reqPerms)
 end)
 
 -- [//[ Functions ]\\] --
+
+---@param perm string
+---@return boolean
 function AC.Player:hasPermission(perm)
     if AC.Player.perms["immune"] then
         return true
@@ -40,24 +48,28 @@ end
 ---@param banData table | string
 function AC.Player:banPlayer(banData)
     if AC.Player:hasPermission("immune") then
-        return 
+        return
     end
 
     TriggerServerEvent("ac:sv:banPlayer", banData)
 end
 
+---@param reason string
 function AC.Player:kickPlayer(reason)
     if AC.Player:hasPermission("immune") then
-        return 
+        return
     end
 
-    TriggerServerEvent("ac:sv:kickPlayer", banData)
+    TriggerServerEvent("ac:sv:kickPlayer", reason)
 end
 
+---@return boolean
 function AC.System:AwaitForLoad()
     while not AC.Player.isLoaded do
         Wait(0)
     end
+
+    return true
 end
 
 ---@diagnostic disable-next-line: duplicate-set-field
