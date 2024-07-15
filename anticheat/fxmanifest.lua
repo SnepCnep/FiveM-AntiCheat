@@ -28,6 +28,5 @@ files {
     'init.lua',
     'src/web/ui.html',
     'src/web/script.js',
-    'src/web/style.css',
     'license'
 }
