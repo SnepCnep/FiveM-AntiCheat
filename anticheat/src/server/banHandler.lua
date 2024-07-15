@@ -40,3 +40,26 @@ end
 function AC.Players:banPlayer(source, banData)
     print("^1BanPlayer^7 - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. json.encode(banData))
 end
+
+function AC.Players:checkVPN(source)
+    if not Config.AntiVPN then
+        return false
+    end
+    
+    local playerIP = GetPlayerEndpoint(source)
+    local hasVPN = false
+    local checkIPURL = ""
+    PerformHttpRequest(checkIPURL .. playerIP, function(code, response, headers)
+        if code == 200 then
+            local data = json.decode(response)
+            if data and data.vpn then
+                hasVPN = true
+            end
+        else
+            print("^1Failed to check for VPN. Error code: " .. code .. "^7"	)
+        end
+    end, "GET", "", {["Content-Type"] = "application/json"})
+
+    Wait(100)
+    return hasVPN
+end

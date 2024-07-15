@@ -20,6 +20,7 @@ Config.AntiSpectate = true
 Config.AntiInvisibility = true
 Config.AntiNuiDevtools = true
 Config.AntiTazer = true
+Config.AntiVPN = true
 
 -- [[ Permissions ]] --
 --[[

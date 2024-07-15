@@ -1,6 +1,5 @@
-------------------------------------------------------------------
+-- [//[ Anti Stop / Start Resources ]\\] --
 -- ## Geen idee waarom ik dit gemaakt heb :D | NEED TESTING
-------------------------------------------------------------------
 
 RegisterNetEvent("ac:sv:resourceStart", function(res)
     local res_state = GetResourceState(res)
