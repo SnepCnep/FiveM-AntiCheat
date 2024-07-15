@@ -18,3 +18,7 @@
 - Anti Nui DevTools
 - Anti Teleport
 - Anti Stop/Start Resource
+- Anti VPN
+- Anti Pickups
+- Anti Noclip / Fly
+- Anti Speedhack
