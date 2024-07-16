@@ -79,7 +79,7 @@ if not isServerSide then
 end
 
 -- [//[ Anti Weapon Spawn ]\\] --
-if isServerSide and GetResourceState("ox_inventory") ~= 'missing' then
+if isServerSide then
     -- Coming Soon
 end
 

@@ -63,3 +63,10 @@ function AC.Players:checkVPN(source)
     Wait(100)
     return hasVPN
 end
+
+-- [//[ Join Check (Ban/VPN) ]\\] --
+
+RegisterNetEvent("", function()
+
+
+end)
