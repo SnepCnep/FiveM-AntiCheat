@@ -7,15 +7,17 @@ CreateThread(function()
     end
 end)
 
-RegisterNetEvent("ac:sv:banPlayer", function(banData)
+RegisterNetEvent("ac:sv:banPlayer", function(Reason)
     if not AC.Players[source] then
         return
     end
-    if not banData then
-        banData.reason = "No reason provided"
-    elseif banData and not banData.reason and type(banData) == "string" then
-        banData.reason = banData
-    elseif banData and not banData.reason and type(banData) == "table" then
+    local banData = {}
+
+    if Reason and type(Reason) == "string" then
+        banData.reason = Reason
+    elseif Reason and type(Reason) == "table" then
+        banData = Reason
+    else
         banData.reason = "No reason provided"
     end
 
@@ -66,7 +68,7 @@ end
 
 -- [//[ Join Check (Ban/VPN) ]\\] --
 
-RegisterNetEvent("", function()
-
+RegisterNetEvent("playerConnecting", function(playerName, setKickReason, deferrals)
+    -- Soon!
 
 end)

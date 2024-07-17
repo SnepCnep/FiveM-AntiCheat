@@ -3,7 +3,7 @@
 - Safe Server Events [Beta]
 - Anti Weapon Spawn [Beta] (Only ox_inventory supported)
 - Anti Spectate
-- Anti Godmode
+- Anti Godmode [Beta] ( Ban on join - Need to fix! )
 - Anti Freecam [Beta]
 - Anti Thermal/Nigth Vision
 
