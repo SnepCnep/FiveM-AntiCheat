@@ -17,7 +17,7 @@
 - Ban System :| ( In Development )
 - Anti Explosion
 - Anti Nui DevTools ( In Development )
-- Anti Teleport ( In Development )
+- Anti Teleport
 - Anti VPN ( In Development )
 - Anti Pickups
 - Anti Noclip / Fly
