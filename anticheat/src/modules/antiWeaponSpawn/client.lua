@@ -55,19 +55,16 @@ if GetResourceState("ox_inventory") ~= 'missing' then
         end)
     end
     
-    function SafeRemoveWeaponFromPed(hash)
+    AC.System:ExportHandler("RemoveWeaponFromPed", function(hash)
         HasWeapon[hash] = nil
-    end
-    AC.System:ExportHandler("RemoveWeaponFromPed", SafeRemoveWeaponFromPed)
+    end)
 
-    function SafeGiveWeaponToPed(hash)
+    AC.System:ExportHandler("GiveWeaponToPed", function(hash)
         HasWeapon[hash] = true
-    end
-    AC.System:ExportHandler("GiveWeaponToPed", SafeGiveWeaponToPed)
+    end)
 
-    function SafeRemoveAllPedWeapons()
+    AC.System:ExportHandler("RemoveAllPedWeapons", function()
         HasWeapon = {}
-    end
-    AC.System:ExportHandler("RemoveAllPedWeapons", SafeRemoveAllPedWeapons)
+    end)
 
 end

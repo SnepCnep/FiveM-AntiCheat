@@ -6,6 +6,8 @@ local Cache = {}
 CreateThread(function()
     AC.System:AwaitForLoad() -- Wait for the system & Player to load!
 
+    Wait(500)
+
     while true do
         Wait(1000)
         local playerPed = PlayerPedId()

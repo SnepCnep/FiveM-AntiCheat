@@ -8,9 +8,9 @@ AC.System = {}
 
 CreateThread(function()
     while true do
-        Wait(0)
+        Wait(100)
         if NetworkIsSessionStarted() then
-            Wait(500)
+            Wait(2500)
             TriggerServerEvent("ac:sv:playerJoined")
             break
         end
@@ -66,7 +66,7 @@ end
 ---@return boolean
 function AC.System:AwaitForLoad()
     while not AC.Player.isLoaded do
-        Wait(0)
+        Wait(1000)
     end
 
     return true
