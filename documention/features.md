@@ -6,6 +6,7 @@
 - Anti Godmode [Beta] ( Ban on join - Need to fix! )
 - Anti Freecam [Beta]
 - Anti Thermal/Nigth Vision
+- Anti Stop/Start Resource [Beta]
 
 ### Not recommended for servers with Population on.
 - Anti Vehicle Spawn [Beta]
@@ -13,12 +14,11 @@
 - Anti Prop Spawn [Beta]
 
 ## Coming Soon
-- Ban System :|
+- Ban System :| ( In Development )
 - Anti Explosion
-- Anti Nui DevTools
-- Anti Teleport
-- Anti Stop/Start Resource
-- Anti VPN
+- Anti Nui DevTools ( In Development )
+- Anti Teleport ( In Development )
+- Anti VPN ( In Development )
 - Anti Pickups
 - Anti Noclip / Fly
 - Anti Speedhack
