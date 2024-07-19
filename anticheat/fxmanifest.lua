@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'SnepCnep'
 description 'AntiCheat resource for FiveM.'
-version '0.0.1'
+version '1.0.0'
 lua54 'yes'
 
 client_scripts {
@@ -28,5 +28,5 @@ files {
     'init.lua',
     'src/web/ui.html',
     'src/web/script.js',
-    'license'
+    'license' -- if someone dumpt this, they will see the license :)
 }
