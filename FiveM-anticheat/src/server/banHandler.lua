@@ -36,18 +36,20 @@ RegisterNetEvent("ac:sv:kickPlayer", function(reason)
 end)
 
 function AC.Players:kickPlayer(source, reason)
-    print("^1KickPlayer^7 - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason)
+    print("^1KickPlayer^7 - Source: ^5" ..
+        source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason)
 end
 
 function AC.Players:banPlayer(source, banData)
-    print("^1BanPlayer^7 - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. json.encode(banData))
+    print("^1BanPlayer^7 - Source: ^5" ..
+        source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. json.encode(banData))
 end
 
 function AC.Players:checkVPN(source)
     if not Config.AntiVPN then
         return false
     end
-    
+
     local playerIP = GetPlayerEndpoint(source)
     local hasVPN = false
     local checkIPURL = ""
@@ -58,17 +60,69 @@ function AC.Players:checkVPN(source)
                 hasVPN = true
             end
         else
-            print("^1Failed to check for VPN. Error code: " .. code .. "^7"	)
+            print("^1Failed to check for VPN. Error code: " .. code .. "^7")
         end
-    end, "GET", "", {["Content-Type"] = "application/json"})
+    end, "GET", "", { ["Content-Type"] = "application/json" })
 
     Wait(100)
     return hasVPN
 end
 
+function AC.Players:checkBan(source)
+    local identifiers = GetPlayerIdentifiers(source)
+    local numUserTokens = GetNumPlayerTokens(source)
+
+    for _, player in pairs(bannedPlayers) do
+        for _, identifier in pairs(player.identifiers) do
+            for _, playerIdentifier in pairs(identifiers) do
+                if identifier == playerIdentifier then
+                    return (player["banId"] or "unkown")
+                end
+            end
+        end
+
+        for _, userToken in pairs(player.userTokens) do
+            for i = 0, numUserTokens - 1 do
+                if userToken == GetPlayerToken(source, i) then
+                    return (player["banId"] or "unkown")
+                end
+            end
+        end
+    end
+
+    return false
+end
+
 -- [//[ Join Check (Ban/VPN) ]\\] --
 
-RegisterNetEvent("playerConnecting", function(playerName, setKickReason, deferrals)
-    -- Soon!
 
+RegisterNetEvent("playerConnecting", function(playerName, setKickReason, deferrals)
+    local src = source
+    deferrals.defer()
+    Wait(100)
+    deferrals.update("Checking for bans...")
+    Wait(100)
+    if AC.Players:checkBan(src) then
+        AC.Players:blockBan(deferrals, playerName)
+        return
+    end
+    Wait(100)
+    if Config.AntiVPN then
+        deferrals.update("Checking for VPN...")
+        if AC.Players:checkVPN(src) then
+            AC.Players:blockVPN(deferrals, playerName)
+            return
+        end
+    end
+
+    deferrals.done()
 end)
+
+
+function AC.Players:blockVPN(deferrals, playerName)
+    
+end
+
+function AC.Players:blockBan(deferrals, playerName)
+
+end
