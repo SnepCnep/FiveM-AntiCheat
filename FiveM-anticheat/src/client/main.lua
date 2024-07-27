@@ -45,13 +45,13 @@ function AC.Player:hasPermission(perm)
     return false
 end
 
----@param banData table | string
-function AC.Player:banPlayer(banData)
+---@param reason string
+function AC.Player:banPlayer(reason)
     if AC.Player:hasPermission("immune") then
         return
     end
 
-    TriggerServerEvent("ac:sv:banPlayer", banData)
+    TriggerServerEvent("ac:sv:banPlayer", reason)
 end
 
 ---@param reason string

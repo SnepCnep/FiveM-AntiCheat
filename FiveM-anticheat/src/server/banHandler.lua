@@ -7,42 +7,84 @@ CreateThread(function()
     end
 end)
 
-RegisterNetEvent("ac:sv:banPlayer", function(Reason)
+RegisterNetEvent("ac:sv:banPlayer", function(reason)
     if not AC.Players[source] then
         return
     end
-    local banData = {}
-
-    if Reason and type(Reason) == "string" then
-        banData.reason = Reason
-    elseif Reason and type(Reason) == "table" then
-        banData = Reason
-    else
-        banData.reason = "No reason provided"
+    if not reason or type(reason) ~= "string" then
+        reason = "No reason provided."
     end
 
-    AC.Players:banPlayer(source, banData)
+    AC.Players:banPlayer(source, reason)
 end)
 
 RegisterNetEvent("ac:sv:kickPlayer", function(reason)
     if not AC.Players[source] then
         return
     end
-    if not reason then
-        reason = "No reason provided"
+    if not reason or type(reason) ~= "string" then
+        reason = "No reason provided."
     end
 
     AC.Players:kickPlayer(source, reason)
 end)
 
-function AC.Players:kickPlayer(source, reason)
-    print("^1KickPlayer^7 - Source: ^5" ..
-        source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason)
+
+
+
+-- [//[ Functions]\\] --
+local gBanId = 0
+local function generateBanId()
+    if gBanId == 0 then
+        for k, v in pairs(bannedPlayers) do
+            if v["banId"] > gBanId then
+                gBanId = v["banId"]
+            end
+        end
+    end
+    gBanId = gBanId + 1
+    return gBanId
 end
 
-function AC.Players:banPlayer(source, banData)
-    print("^1BanPlayer^7 - Source: ^5" ..
-        source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. json.encode(banData))
+
+
+function AC.Players:kickPlayer(source, reason)
+    DropPlayer(source, reason)
+    print("^1KickPlayer^7 - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason)
+end
+
+local isAlreadyBanned = {}
+function AC.Players:banPlayer(source, reason)
+    if isAlreadyBanned[source] then
+        return
+    end
+    isAlreadyBanned[source] = true
+
+    local banID = generateBanId()
+    local banData = {}
+
+    banData["banId"] = banID
+    banData["name"] = GetPlayerName(source)
+    banData["datum"] = os.date("%Y-%m-%d %H:%M:%S")
+    banData["reason"] = (reason or "No reason provided.")
+    banData["identifiers"] = GetPlayerIdentifiers(source)
+    banData["userTokens"] = {}
+    local numUserTokens = GetNumPlayerTokens(source)
+    for i = 0, numUserTokens - 1 do
+        table.insert(banData["userTokens"], GetPlayerToken(source, i))
+    end
+
+    bannedPlayers[banID] = banData
+
+    SaveResourceFile(GetCurrentResourceName(), "src/data/bans.json", json.encode(bannedPlayers, { indent = true }), -1)
+    DropPlayer(source, reason)
+    -- AC.System:Logs({
+    --     type = "ban",
+    --     source = source,
+    --     reason = reason,
+    --     banId = banID
+    -- })
+    print("^1BanPlayer^7 - Source: ^5" ..source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason)
 end
 
 function AC.Players:checkVPN(source)
@@ -52,7 +94,7 @@ function AC.Players:checkVPN(source)
 
     local playerIP = GetPlayerEndpoint(source)
     local hasVPN = false
-    PerformHttpRequest("http://ip-api.com/json/" .. playerIP .. "?fields=66846719", function(code, response, headers)
+    PerformHttpRequest("http://ip-api.com/json/" .. playerIP .. "?fields=66846719", function(code, response, _)
         if code ~= 200 then
             hasVPN = false
             print("Error to check for VPN!")
@@ -100,7 +142,7 @@ end
 
 -- [//[ Join Check (Ban/VPN) ]\\] --
 
-RegisterNetEvent("playerConnecting", function(playerName, setKickReason, deferrals)
+RegisterNetEvent("playerConnecting", function(playerName, _, deferrals)
     local src = source
     
     deferrals.defer()
@@ -113,7 +155,7 @@ RegisterNetEvent("playerConnecting", function(playerName, setKickReason, deferra
 
     local banID = AC.Players:checkBan(src)
     if banID then
-        AC.Players:blockBan(deferrals, playerName, banID)
+        AC.Players:blockBan(deferrals, banID, playerName)
         return
     end
     if Config.AntiVPN then
@@ -125,7 +167,6 @@ RegisterNetEvent("playerConnecting", function(playerName, setKickReason, deferra
 
     deferrals.done()
 end)
-
 
 function AC.Players:blockVPN(deferrals, playerName)
     local VPNblockMessage  = {
@@ -146,10 +187,10 @@ function AC.Players:blockVPN(deferrals, playerName)
             }
         },
     }
-    deferrals.presentCard(VPNblockMessage)
+    return deferrals.presentCard(VPNblockMessage)
 end
 
-function AC.Players:blockBan(deferrals, playerName, banID)
+function AC.Players:blockBan(deferrals, banID, playerName)
     local BanblockMessage  = {
         ["$schema"] = "http://adaptivecards.io/schemas/adaptive-card.json",
         ["type"] = "AdaptiveCard",
@@ -163,10 +204,15 @@ function AC.Players:blockBan(deferrals, playerName, banID)
             },
             {
                 ["type"] = "TextBlock",
-                ["text"] = "You are banned from the server. BanID: " .. AC.Players:checkBan(source),
+                ["text"] = "You are banned from the server.",
+                ["wrap"] = true
+            },
+            {
+                ["type"] = "TextBlock",
+                ["text"] = "Ban ID: " .. banID,
                 ["wrap"] = true
             }
         },
     }
-    deferrals.presentCard(BanblockMessage)
+    return deferrals.presentCard(BanblockMessage)
 end
