@@ -52,19 +52,24 @@ function AC.Players:checkVPN(source)
 
     local playerIP = GetPlayerEndpoint(source)
     local hasVPN = false
-    local checkIPURL = ""
-    PerformHttpRequest(checkIPURL .. playerIP, function(code, response, headers)
-        if code == 200 then
-            local data = json.decode(response)
-            if data and data.vpn then
+    PerformHttpRequest("http://ip-api.com/json/" .. playerIP .. "?fields=66846719", function(code, response, headers)
+        if code ~= 200 then
+            hasVPN = false
+            print("Error to check for VPN!")
+            return
+        end
+
+        local data = json.decode(response)
+        if data and data.status == "success" then
+            if data.proxy then
                 hasVPN = true
             end
         else
-            print("^1Failed to check for VPN. Error code: " .. code .. "^7")
+            hasVPN = false
+            print("A unkown error has been called on checking for VPN!")
         end
     end, "GET", "", { ["Content-Type"] = "application/json" })
 
-    Wait(100)
     return hasVPN
 end
 
@@ -95,20 +100,23 @@ end
 
 -- [//[ Join Check (Ban/VPN) ]\\] --
 
-
 RegisterNetEvent("playerConnecting", function(playerName, setKickReason, deferrals)
     local src = source
+    
     deferrals.defer()
+
     Wait(100)
+
     deferrals.update("Checking for bans...")
+
     Wait(100)
-    if AC.Players:checkBan(src) then
-        AC.Players:blockBan(deferrals, playerName)
+
+    local banID = AC.Players:checkBan(src)
+    if banID then
+        AC.Players:blockBan(deferrals, playerName, banID)
         return
     end
-    Wait(100)
     if Config.AntiVPN then
-        deferrals.update("Checking for VPN...")
         if AC.Players:checkVPN(src) then
             AC.Players:blockVPN(deferrals, playerName)
             return
@@ -120,9 +128,45 @@ end)
 
 
 function AC.Players:blockVPN(deferrals, playerName)
-    
+    local VPNblockMessage  = {
+        ["$schema"] = "http://adaptivecards.io/schemas/adaptive-card.json",
+        ["type"] = "AdaptiveCard",
+        ["version"] = "1.6",
+        ["body"] = {
+            {
+                ["type"] = "TextBlock",
+                ["text"] = "VPN Detected",
+                ["size"] = "Large",
+                ["weight"] = "Bolder"
+            },
+            {
+                ["type"] = "TextBlock",
+                ["text"] = "You are using a VPN to connect to the server. Please disable it and try again.",
+                ["wrap"] = true
+            }
+        },
+    }
+    deferrals.presentCard(VPNblockMessage)
 end
 
-function AC.Players:blockBan(deferrals, playerName)
-
+function AC.Players:blockBan(deferrals, playerName, banID)
+    local BanblockMessage  = {
+        ["$schema"] = "http://adaptivecards.io/schemas/adaptive-card.json",
+        ["type"] = "AdaptiveCard",
+        ["version"] = "1.6",
+        ["body"] = {
+            {
+                ["type"] = "TextBlock",
+                ["text"] = "Banned",
+                ["size"] = "Large",
+                ["weight"] = "Bolder"
+            },
+            {
+                ["type"] = "TextBlock",
+                ["text"] = "You are banned from the server. BanID: " .. AC.Players:checkBan(source),
+                ["wrap"] = true
+            }
+        },
+    }
+    deferrals.presentCard(BanblockMessage)
 end
