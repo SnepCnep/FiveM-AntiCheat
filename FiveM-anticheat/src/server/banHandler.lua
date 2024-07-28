@@ -112,6 +112,8 @@ function AC.Players:checkVPN(source)
         end
     end, "GET", "", { ["Content-Type"] = "application/json" })
 
+    Wait(100)
+
     return hasVPN
 end
 
