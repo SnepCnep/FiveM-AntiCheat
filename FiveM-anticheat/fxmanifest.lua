@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'SnepCnep'
-description 'AntiCheat resource for FiveM.'
+description 'AntiCheat resource for FiveM. (SnepCnep)'
 version '1.0.0'
 lua54 'yes'
 

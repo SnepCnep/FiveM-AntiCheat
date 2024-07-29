@@ -36,19 +36,13 @@ if GetResourceState("ox_inventory") ~= 'missing' then
 
                     SetCurrentPedWeapon(playerPed, `WEAPON_UNARMED`, true)
                     RemoveWeaponFromPed(playerPed, weaponHash)
-                    AC.Player:banPlayer({
-                        reason = "Try to spawn a weapon! #1",
-                        weapon = weaponHash
-                    })
+                    AC.Player:banPlayer("Try to spawn a weapon! #1 | Weapon: " .. weaponHash2)
 
                 elseif weaponHash2 ~= `WEAPON_UNARMED` and not HasWeapon[weaponHash2] then
 
                     SetCurrentPedWeapon(playerPed, `WEAPON_UNARMED`, true)
                     RemoveWeaponFromPed(playerPed, weaponHash)
-                    AC.Player:banPlayer({
-                        reason = "Try to spawn a weapon! #2",
-                        weapon = weaponHash
-                    })
+                    AC.Player:banPlayer("Try to spawn a weapon! #2 | Weapon: " .. weaponHash2)
 
                 end
             end
