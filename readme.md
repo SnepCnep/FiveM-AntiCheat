@@ -3,8 +3,8 @@ This is a anticheat for FiveM servers. It's still in development, so it's not re
 
 ## Status/Information
 - Author: `SnepCnep`
-- Status: `Development`
-- Version: `0.1.0`
+- Status: `Betä`
+- Version: `1.0.0-Betá-1`
 - Discord: `SnepCnep` - For support, please open a issue on the repository.
 
 ## Features
