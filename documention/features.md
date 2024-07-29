@@ -5,16 +5,18 @@
 - Safe Server Events [Beta]
 - Anti Weapon Spawn [Beta] (Only ox_inventory supported)
 - Anti Spectate
-- Anti Godmode [Beta] ( Ban on join - Need to fix! )
+- Anti Godmode [Beta]
 - Anti Freecam [Beta]
 - Anti Thermal/Nigth Vision
 - Anti Stop/Start Resource [Beta]
-
 
 ### Not recommended for servers with Population on.
 - Anti Vehicle Spawn [Beta]
 - Anti Ped Spawn [Beta]
 - Anti Prop Spawn [Beta]
+
+## Know Bugs
+- Only supported `lua` resources!
 
 ## Coming Soon
 - Anti Explosion
@@ -23,3 +25,6 @@
 - Anti Pickups
 - Anti Noclip / Fly
 - Anti Speedhack
+- Anti AI 
+- Anti Heal
+- Anti vehicle Repair
