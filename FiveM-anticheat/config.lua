@@ -21,6 +21,7 @@ Config.AntiInvisibility = true
 Config.AntiNuiDevtools = true
 Config.AntiTazer = true
 Config.AntiVPN = true
+Config.AntiWeaponExplosion = true
 
 -- [[ Permissions ]] --
 --[[
