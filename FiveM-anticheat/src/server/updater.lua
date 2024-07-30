@@ -1,6 +1,6 @@
 -- [//[ Update Checker ]\\] --
 local getCurrentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version', 0) or "1.0.0"
-local githubUrl = "https://raw.githubusercontent.com/SnepCnep/AntiCheat/main/anticheat/src/data/version.json"
+local githubUrl = "https://raw.githubusercontent.com/SnepCnep/fivem-anticheat/main/FiveM-anticheat/src/data/version.json"
 
 CreateThread(function()
     

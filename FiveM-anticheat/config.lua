@@ -1,4 +1,5 @@
 Config = {}
+Config.Debugger = true -- [[ ~This disable the ban and kick system, only for debug purposes~ ]]
 
 -- [[ Injection ]] --
 Config.AntiOldESX = true
