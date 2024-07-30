@@ -4,6 +4,9 @@ CreateThread(function()
     local bansFile = LoadResourceFile(GetCurrentResourceName(), "src/data/bans.json")
     if bansFile then
         bannedPlayers = json.decode(bansFile)
+        if not bannedPlayers or type(bannedPlayers) ~= "table" then
+            bannedPlayers = {}
+        end
     end
 end)
 
@@ -49,12 +52,20 @@ end
 
 
 function AC.Players:kickPlayer(source, reason)
+    if (Config.Debugger or false) then
+        print("^1KickPlayer(DEBUG)^7 - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason)
+        return
+    end
     DropPlayer(source, reason)
     print("^1KickPlayer^7 - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason)
 end
 
 local isAlreadyBanned = {}
 function AC.Players:banPlayer(source, reason)
+    if (Config.Debugger or false) then
+        print("^1BanPlayer(DEBUG)^7 - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason)
+        return
+    end
     if isAlreadyBanned[source] then
         return
     end
@@ -64,14 +75,16 @@ function AC.Players:banPlayer(source, reason)
     local banData = {}
 
     banData["banId"] = banID
-    banData["name"] = GetPlayerName(source)
+    banData["name"] = (GetPlayerName(source) or "Unknown")
     banData["datum"] = os.date("%Y-%m-%d %H:%M:%S")
     banData["reason"] = (reason or "No reason provided.")
     banData["identifiers"] = GetPlayerIdentifiers(source)
     banData["userTokens"] = {}
     local numUserTokens = GetNumPlayerTokens(source)
-    for i = 0, numUserTokens - 1 do
-        table.insert(banData["userTokens"], GetPlayerToken(source, i))
+    if numUserTokens ~= 0 then
+        for i = 0, numUserTokens - 1 do
+            table.insert(banData["userTokens"], GetPlayerToken(source, i))
+        end
     end
 
     bannedPlayers[banID] = banData
@@ -84,7 +97,7 @@ function AC.Players:banPlayer(source, reason)
     --     reason = reason,
     --     banId = banID
     -- })
-    print("^1BanPlayer^7 - Source: ^5" ..source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason)
+    print("^1BanPlayer^7 - Source: ^5" ..source .. " ^7- Name: ^5" .. banData["name"] .. " ^7- Reason: ^5" .. reason)
 end
 
 function AC.Players:checkVPN(source)
@@ -149,8 +162,6 @@ RegisterNetEvent("playerConnecting", function(playerName, _, deferrals)
     
     deferrals.defer()
 
-    Wait(100)
-
     deferrals.update("Checking for bans...")
 
     Wait(100)
@@ -160,6 +171,7 @@ RegisterNetEvent("playerConnecting", function(playerName, _, deferrals)
         AC.Players:blockBan(deferrals, banID, playerName)
         return
     end
+
     if Config.AntiVPN then
         if AC.Players:checkVPN(src) then
             AC.Players:blockVPN(deferrals, playerName)
