@@ -23,9 +23,10 @@ Config.AntiVehiclesSpawn = true
 -- [[ Misc ]] --
 Config.AntiGodmode = true
 Config.AntiSpectate = true
-Config.AntiInvisibility = true
-Config.AntiNuiDevtools = true
+Config.AntiInvisibility = true -- not implemented yet
+Config.AntiNuiDevtools = true -- not implemented yet
 Config.AntiTazer = true
+Config.AntiNoclip = true
 Config.AntiVPN = true
 Config.AntiWeaponExplosion = true
 

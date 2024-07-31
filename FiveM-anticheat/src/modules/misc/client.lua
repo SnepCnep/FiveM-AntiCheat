@@ -28,15 +28,15 @@ CreateThread(function()
                 GetEntityProofs(playerId)
 
                 if GetPlayerInvincible(playerId) or GetPlayerInvincible_2(playerId) then
-                    AC.Player:banPlayer("Godmode detected! #1")
+                    AC.Player:banPlayer("Godmode detected! | Type: #1")
                 end
 
                 if retval == 1 and bulletProof == 1 and fireProof == 1 and explosionProof == 1 and collisionProof == 1 and steamProof == 1 and p7 == 1 and drownProof == 1 then
-                    AC.Player:banPlayer("Godmode detected! #2")
+                    AC.Player:banPlayer("Godmode detected! | Type: #2")
                 end
 
                 if not GetEntityCanBeDamaged(playerPed) then
-                    AC.Player:banPlayer("Godmode detected! #3")
+                    AC.Player:banPlayer("Godmode detected! | Type: #3")
                 end
             end
         end
@@ -49,17 +49,20 @@ CreateThread(function()
         end
 
         -- [//[ Anti Noclip / Freecam ]\\] --
+        -- // Noclip Detection
         if not AC.Player:hasPermission("noclip") and Config.AntiNoclip then
-            -- // Noclip Detection
 
-
+        end
+        
+        
+        if not AC.Player:hasPermission("freecam") and Config.AntiFreecam then
             -- // FreeCam Detection
             local playerCoords = GetEntityCoords(playerPed)
             local camCoords = GetFinalRenderedCamCoord()
             local distance = #(playerCoords - camCoords)
 
             if distance > 50 and not IsCinematicCamRendering() then
-                AC.Player:banPlayer("Freecam detected!")
+                AC.Player:banPlayer("Freecam detected! | #1")
             end
         end
 
