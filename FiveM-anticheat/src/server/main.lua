@@ -42,7 +42,8 @@ local permissions = {
     "godmode",
     "spectate",
     "noclip",
-    "invisible"
+    "invisible",
+    "freecam",
 }
 
 function AC.Players:getPermissions(source)

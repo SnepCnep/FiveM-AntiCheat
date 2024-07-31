@@ -39,6 +39,7 @@ Config.AntiWeaponExplosion = true
     spectate
     noclip
     invisible
+    freecam
 
 ]]
 --[[
