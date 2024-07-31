@@ -1,6 +1,7 @@
 ## Features
 - Permissions System
-- Ban System [Beta]
+- BanSystem [Beta]
+- HttpFilter [Beta]
 - Anti VPN [Beta]
 - Safe Server Events [Beta]
 - Anti Weapon Spawn [Beta] (Only ox_inventory supported)
@@ -8,7 +9,9 @@
 - Anti Godmode [Beta]
 - Anti Freecam [Beta]
 - Anti Thermal/Nigth Vision
-- Anti Stop/Start Resource [Beta]
+- Anti Stop/Start Resources [Beta]
+- Anti Explosive Melee/Bullets [Beta]
+- Anti Backdoor [Beta]
 
 ### Not recommended for servers with Population on.
 - Anti Vehicle Spawn [Beta]
