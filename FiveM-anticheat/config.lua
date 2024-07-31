@@ -26,7 +26,7 @@ Config.AntiSpectate = true
 Config.AntiInvisibility = true -- not implemented yet
 Config.AntiNuiDevtools = true -- not implemented yet
 Config.AntiTazer = true
-Config.AntiNoclip = true
+Config.AntiFreecam = true
 Config.AntiVPN = true
 Config.AntiWeaponExplosion = true
 
