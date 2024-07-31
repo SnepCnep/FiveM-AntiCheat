@@ -1,11 +1,11 @@
 # AntiCheat - FiveM
-This is a anticheat for FiveM servers. It's still in development, so it's not recommended to use it in production.
+NOW IN BETÁ! ( if you find any bugs please report this! )
 
 ## Status/Information
 - Author: `SnepCnep`
 - Status: `betá`
 - Version: `1.0.0-Betá-3`
-- Discord: `SnepCnep` - For support, please open a issue on the repository.
+- Discord: `[Support Discord](https://discord.gg/Dz78Q2bnNt)`
 
 ## Features
 For all the features, check the [features.md](documention/features.md) file.
