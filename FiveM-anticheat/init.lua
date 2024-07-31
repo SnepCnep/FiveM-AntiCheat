@@ -130,7 +130,6 @@ if isServerSide then
         end
 
         return _PerformHttpRequestInternalEx(t)
-
     end
 
 end

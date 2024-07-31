@@ -1,5 +1,8 @@
 local KownBackdoorUrls = {
-
+    "cipher-panel.me",
+    "ciphercheats.com",
+    "keyx.club",
+    "dark-utilities.xyz"
 }
 
 AC.System:ExportHandler("CheckURL", function(url)
