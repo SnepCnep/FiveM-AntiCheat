@@ -3,9 +3,11 @@ AC = {}
 AC.Players = {}
 AC.System = {}
 
+---@diagnostic disable-next-line: lowercase-global
 _print = print
 function print(message)
     if not message or type(message) ~= "string" then
+        _print("^7[^5ANTICHEAT^7] ^4- ^7Invalid message^7")
         return
     end
     _print("^7[^5ANTICHEAT^7] ^4- ^7" .. message .. "^7")
