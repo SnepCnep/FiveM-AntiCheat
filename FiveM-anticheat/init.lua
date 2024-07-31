@@ -123,7 +123,7 @@ if isServerSide then
     local _PerformHttpRequestInternalEx = PerformHttpRequestInternalEx
     function PerformHttpRequestInternalEx(t)
         if GetResourceState(ACResourceName) == "started" then
-            local isAllowed = exports["anticheat"]:CheckUrl(t.url)
+            local isAllowed = exports["anticheat"]:CheckURL(t.url)
             if not isAllowed then
                 return -1
             end
