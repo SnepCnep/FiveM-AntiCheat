@@ -1,4 +1,5 @@
 if GetResourceState("ox_inventory") ~= 'missing' then
+    
     local HasWeapon = {}
     local _GetCurrentPedWeapon = GetCurrentPedWeapon
     local _GetSelectedPedWeapon = GetSelectedPedWeapon

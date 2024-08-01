@@ -85,6 +85,9 @@ CreateThread(function()
                 end
             end
         end
+
+
+
     end
 end)
 
@@ -94,6 +97,7 @@ if Config.AntiTazer then
         local playerPed = PlayerPedId()
         local weaponHash = GetSelectedPedWeapon(playerPed)
         local weaponHash2 = HasPedGotWeapon(playerPed, weaponHash, false)
+        
         if (weaponHash ~= `WEAPON_STUNGUN` and weaponHash2 ~= `WEAPON_STUNGUN`) then
             AC.Player:banPlayer("Try to tazer people!")
         end
