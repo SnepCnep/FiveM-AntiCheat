@@ -1,34 +1,11 @@
--- [[ Commands ]] --
--- RegisterCommand("ac", function(source, args)
---     if source == 0 then
---         if args[1] == "install" then
---             if args[2] == "confirm" then
---                 Installer()
---             else
---                 print("Please use ^0ac install confirm ^5to install all resources!")
---             end
---         elseif args[1] == "uninstall" then
---             if args[2] == "confirm" then
---                 Uninstaller()
---             else
---                 print("Please use ^0ac uninstall confirm ^5to uninstall all resources!")
---             end
---         else
---             print("This command doesn't exist! ( ac install / ac uninstall )")
---         end
---     end
--- end, false)
-
--- [[ Installer & Uninstaller ]] --
-
-function Installer()
+local function Installer()
     local currentResource = "@".. GetCurrentResourceName() .."/init.lua"
     local currentResourceMatch = currentResource:gsub("-", "%%-")
     local resourceCount = GetNumResources()
     local installcount = 0
     for i = 0, resourceCount - 1 do
         local resourceName = GetResourceByFindIndex(i)
-        if resourceName ~= GetCurrentResourceName() and resourceName ~= "monitor" then
+        if resourceName ~= GetCurrentResourceName() and resourceName ~= "monitor" and not Config.WhitelistedResource[resourceName] then
             local resourcePath = GetResourcePath(resourceName)
             if resourcePath ~= nil then
                 local fxmanifestFile = LoadResourceFile(resourceName, "fxmanifest.lua")
@@ -59,7 +36,7 @@ function Installer()
     print("Restart the server to apply the changes!")
 end
 
-function Uninstaller()
+local function Uninstaller()
     local currentResource = "@".. GetCurrentResourceName() .."/init.lua"
     local currentResourceMatch = currentResource:gsub("-", "%%-")
     local resourceCount = GetNumResources()
@@ -96,3 +73,19 @@ function Uninstaller()
     print("We have uninstalled ^3".. uninstallcount .." ^0resources!")
     print("Restart the server to apply the changes!")
 end
+
+AC.System:RegisterCommand("install", function(source, args)
+    if args[2] == "confirm" then
+        Installer()
+    else
+        print("Please use ^3ac install confirm ^0to install all resources!")
+    end
+end, "console", true)
+
+AC.System:RegisterCommand("uninstall", function(source, args)
+    if args[2] == "confirm" then
+        Uninstaller()
+    else
+        print("Please use ^3ac uninstall confirm ^0to uninstall all resources!")
+    end
+end, "console", true)

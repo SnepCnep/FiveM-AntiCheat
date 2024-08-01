@@ -3,7 +3,7 @@
 AC = {}
 AC.Player = {}
 AC.System = {}
-
+AC.Player.perms = {}
 -- [//[ Threads ]\\] --
 
 CreateThread(function()

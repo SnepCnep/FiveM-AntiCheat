@@ -1,12 +1,20 @@
 Config = {}
-Config.Debugger = true -- [[ ~This disable the ban and kick system, only for debug purposes~ ]]
+Config.Debugger = false -- [[ ~This disable the ban and kick system, only for debug purposes~ ]]
 Config.CheckForUpdates = true
+
+Config.WhitelistedResource = {
+    [""] = true,
+}
 
 -- [[ Injection ]] --
 Config.AntiOldESX = true
 
 -- [[ Protection ]] --
 Config.AntiServerEvents = true
+Config.WhitelistedEvents = {
+    ["__cfx_internal:commandFallback"] = true
+}
+
 Config.AntiBackdoor = true -- Only blockt http backdoors
 Config.HttpFilter = true
 Config.AllowedUrls = {

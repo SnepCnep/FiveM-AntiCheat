@@ -1,6 +1,14 @@
 local TriggeredServerEvents = {}
 
 function SafeServerTrigger(eventName)
+    if not Config.AntiServerEvents then
+        return -- Memory leak fix
+    end
+
+    if Config.WhitelistedEvents[eventName] then
+        return -- Memory leak fix
+    end
+
     if not TriggeredServerEvents[eventName] then
         TriggeredServerEvents[eventName] = 0
     end
