@@ -107,7 +107,7 @@ function AC.Players:checkVPN(source)
 
     local playerIP = GetPlayerEndpoint(source)
     local hasVPN = false
-    PerformHttpRequest("http://ip-api.com/json/" .. playerIP .. "?fields=66846719", function(code, response, _)
+    PerformHttpRequest("http://ip-api.com/json/".. playerIP .."?fields=66846719", function(code, response, _)
         if code ~= 200 then
             hasVPN = false
             print("Error to check for VPN!")
@@ -125,7 +125,7 @@ function AC.Players:checkVPN(source)
         end
     end, "GET", "", { ["Content-Type"] = "application/json" })
 
-    Wait(100)
+    Wait(200)
 
     return hasVPN
 end
