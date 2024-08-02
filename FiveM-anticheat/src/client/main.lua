@@ -9,7 +9,7 @@ AC.Player.perms = {}
 CreateThread(function()
     while true do
         Wait(100)
-        if NetworkIsSessionStarted() then
+        if NetworkIsSessionStarted() and DoesEntityExist(PlayerPedId()) then
             Wait(2500)
             TriggerServerEvent("ac:sv:playerJoined")
             break
@@ -67,6 +67,10 @@ end
 function AC.System:AwaitForLoad()
     while not AC.Player.isLoaded do
         Wait(1000)
+    end
+
+    if Config.LongLoadTime then
+        Wait((Config.LongLoadTime * 1000))
     end
 
     return true

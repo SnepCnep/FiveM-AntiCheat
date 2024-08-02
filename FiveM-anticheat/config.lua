@@ -1,6 +1,7 @@
 Config = {}
-Config.Debugger = false -- [[ ~This disable the ban and kick system, only for debug purposes~ ]]
+Config.Debugger = true -- [[ ~This disable the ban and kick system, only for debug purposes~ ]]
 Config.CheckForUpdates = true
+Config.LongLoadTime = 5 -- [[ In seconds ]]
 
 Config.WhitelistedResource = {
     [""] = true,
@@ -39,7 +40,11 @@ Config.AntiSpamTazer = true -- Still in development
 
 
 -- [[ Misc ]] --
+Config.AntiVehicleParachute = true
 Config.AntiWeaponExplosion = true
+Config.AntiBiggerHitbox = true
+Config.AntiAntiHeadshot = true
+Config.AntiHornboost = true
 Config.AntiSpectate = true
 Config.AntiFreecam = true
 Config.AntiGodmode = true
