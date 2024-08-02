@@ -52,6 +52,7 @@ Config.AntiGodmode = true
 Config.AntiTazer = true
 Config.AntiVPN = true
 
+
 Config.AntiInvisibility = true -- Still in development
 
 -- [[ Permissions ]] --
