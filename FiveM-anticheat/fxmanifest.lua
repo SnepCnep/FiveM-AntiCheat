@@ -19,6 +19,7 @@ server_scripts {
     'src/server/banHandler.lua',
     'src/server/updater.lua',
     'src/server/installer.lua',
+    'src/server/logs.lua',
     'src/modules/**/server.lua',
 }
 
