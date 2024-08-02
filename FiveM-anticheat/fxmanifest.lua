@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'SnepCnep'
 description 'AntiCheat resource for FiveM. (SnepCnep)'
-version '1.0.0-Betá-3'
+version '1.0.0-Betá-4'
 lua54 'yes'
 
 client_scripts {
@@ -19,6 +19,7 @@ server_scripts {
     'src/server/banHandler.lua',
     'src/server/updater.lua',
     'src/server/installer.lua',
+    'src/server/logs.lua',
     'src/modules/**/server.lua',
 }
 

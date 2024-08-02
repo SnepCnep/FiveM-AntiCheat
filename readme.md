@@ -4,7 +4,7 @@ NOW IN BETÁ! ( if you find any bugs please report this! )
 ## Status/Information
 - Author: `SnepCnep`
 - Status: `betá`
-- Version: `1.0.0-Betá-3`
+- Version: `1.0.0-Betá-4`
 - Discord: [Support Discord](https://discord.gg/Dz78Q2bnNt)
 
 ## Features

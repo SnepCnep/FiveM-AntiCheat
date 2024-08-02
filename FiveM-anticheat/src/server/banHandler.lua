@@ -74,7 +74,7 @@ function AC.Players:banPlayer(source, reason)
     local banID = generateBanId()
     local banData = {}
 
-    banData["banId"] = banID
+    banData["banId"] = tostring(banID)
     banData["name"] = (GetPlayerName(source) or "Unknown")
     banData["datum"] = os.date("%Y-%m-%d %H:%M:%S")
     banData["reason"] = (reason or "No reason provided.")
@@ -87,7 +87,7 @@ function AC.Players:banPlayer(source, reason)
         end
     end
 
-    bannedPlayers[banID] = banData
+    bannedPlayers[tostring(banID)] = banData
 
     SaveResourceFile(GetCurrentResourceName(), "src/data/bans.json", json.encode(bannedPlayers, { indent = true }), -1)
     DropPlayer(source, reason)
@@ -230,3 +230,58 @@ function AC.Players:blockBan(deferrals, banID, playerName)
     }
     return deferrals.presentCard(BanblockMessage)
 end
+
+
+
+AC.System:RegisterCommand("unban", function(source, args)
+    if source == 0 then
+        local banId = args[2]
+        if not banId then
+            print("Please provide a ban id!")
+            return
+        end
+
+        if bannedPlayers[tostring(banId)] then
+            bannedPlayers[tostring(banId)] = nil
+            print("Player has been unbanned!")
+
+        else
+            print("This player is not banned!")
+        end
+    else
+        local banId = args[2]
+        if not banId then
+            print("Please provide a ban id!")
+            return
+        end
+
+        if bannedPlayers[tostring(banId)] then
+            bannedPlayers[tostring(banId)] = nil
+            SaveResourceFile(GetCurrentResourceName(), "src/data/bans.json", json.encode(bannedPlayers, { indent = true }), -1)
+            print("Player has been unbanned!")
+        else
+            print("This player is not banned!")
+        end
+    end
+end, "unban", false)
+
+AC.System:RegisterCommand("baninfo", function(source, args)
+    local banId = args[2]
+    if not banId then
+        print("Please provide a ban id!")
+        return
+    end
+
+    if not bannedPlayers[tostring(banId)] then
+        print("This player is not banned!")
+        return
+    end
+    
+    local banInfo = bannedPlayers[tostring(banId)]
+    print("^3-----------------------------[[ ^5Ban Info ^3]]-----------------------------^0")
+    print("Ban ID: " .. banId)
+    print("Name: " .. (banInfo["name"] or "Unknown"))
+    print("Reason: " .. (banInfo["reason"] or "No reason provided."))
+    print("Date: " .. (banInfo["datum"] or "Unknown"))
+    print("^3-------------------------------------------------------------------------------^0")
+end, "console", true)

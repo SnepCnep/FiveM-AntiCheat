@@ -5,6 +5,10 @@ function RegisterSafeServer(resource, eventName)
         return
     end
 
+    if Config.WhitelistedEvents[eventName] then
+        return
+    end
+
     if isEventProtected[eventName] then
         return
     end
@@ -12,6 +16,12 @@ function RegisterSafeServer(resource, eventName)
 
 
     RegisterNetEvent(eventName, function()
+        local src = GetInvokingResource()
+
+        if src ~= nil then
+            return
+        end
+
         if not source or source == 0 then
             return
         end

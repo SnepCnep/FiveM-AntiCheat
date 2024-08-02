@@ -100,7 +100,6 @@ function AC.System:RegisterCommand(command, callback, perms, consoleOnly)
     }
 end
 
--- [//[ Commands ]\\] --
 RegisterCommand("ac", function(source, args)
     local command = RegisteredCommands[args[1]]
     if command then
@@ -120,28 +119,12 @@ RegisterCommand("ac", function(source, args)
     end
 end, false)
 
-AC.System:RegisterCommand("install", function(source, args)
-    if args[2] == "confirm" then
-        Installer()
-    else
-        print("Please use ^3ac install confirm ^0to install all resources!")
-    end
-end, "console", true)
-
-AC.System:RegisterCommand("uninstall", function(source, args)
-    if args[2] == "confirm" then
-        Uninstaller()
-    else
-        print("Please use ^3ac uninstall confirm ^0to uninstall all resources!")
-    end
-end, "console", true)
+-- [//[ Commands ]\\] --
 
 AC.System:RegisterCommand("help", function(source, args)
     print("^3-----------------------------[[ ^5Anticheat Help ^3]]-----------------------------^0")
     print("ac install confirm - Install all resources")
     print("ac uninstall confirm - Uninstall all resources")
-    print("ac setadmin [ID] [GROUP] - Add a player as admin (user = reset)")
-    print("ac removeadmin [ID or Identifier] - Remove a player from admin group")
     print("ac unban [BANID] - Unban a player")
     print("ac baninfo [BANID] - Get information about a ban")
     print("^3-------------------------------------------------------------------------------^0")
