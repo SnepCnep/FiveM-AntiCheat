@@ -1,29 +1,32 @@
 ## Features
 - Permissions System
-- BanSystem [Beta]
-- HttpFilter [Beta]
+- BanSystem
+- HttpFilter [`InstallRequired`]
 - Anti VPN [Beta]
-- Safe Server Events [Beta]
-- Anti Weapon Spawn [Beta] (Only ox_inventory supported)
+- Safe Server Events
+- Anti Weapon Spawn [Beta] (Only ox_inventory supported) [`InstallRequired`]
 - Anti Spectate
 - Anti Godmode [Beta]
 - Anti Freecam [Beta]
 - Anti Thermal/Nigth Vision
-- Anti Stop/Start Resources [Beta]
+- Anti Stop/Start Resources
 - Anti Explosive Melee/Bullets [Beta]
-- Anti Backdoor [Beta]
+- Anti Backdoor [`InstallRequired`]
+- Anti NuiDevTools
+- Anti BiggerHitbox [Beta]
+- Anti Hornboost [Beta]
+- Anti AntiHeadshot [Beta]
+- Anti Vehicle Spawn [`InstallRequired`]
+- Anti Ped Spawn [`InstallRequired`]
+- Anti Prop Spawn [`InstallRequired`]
 
-### Not recommended for servers with Population on.
-- Anti Vehicle Spawn [Beta]
-- Anti Ped Spawn [Beta]
-- Anti Prop Spawn [Beta]
 
 ## Know Bugs
 - Only supported `lua` resources!
+- Anti VPN is Broken!
 
 ## Coming Soon
 - Anti Explosion
-- Anti Nui DevTools ( In Development )
 - Anti Teleport
 - Anti Pickups
 - Anti Noclip / Fly
