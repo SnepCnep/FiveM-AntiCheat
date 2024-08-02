@@ -44,6 +44,7 @@ Config.AntiVehicleParachute = true
 Config.AntiWeaponExplosion = true
 Config.AntiBiggerHitbox = true
 Config.AntiAntiHeadshot = true
+Config.AntiNuiDevtools = true
 Config.AntiHornboost = true
 Config.AntiSpectate = true
 Config.AntiFreecam = true
@@ -52,7 +53,6 @@ Config.AntiTazer = true
 Config.AntiVPN = true
 
 Config.AntiInvisibility = true -- Still in development
-Config.AntiNuiDevtools = true -- Still in development
 
 -- [[ Permissions ]] --
 --[[
