@@ -63,6 +63,30 @@ function AC.Player:kickPlayer(reason)
     TriggerServerEvent("ac:sv:kickPlayer", reason)
 end
 
+local catche = {}
+function AC.Player:setCache(name, data)
+    catche[name] = data
+end
+
+function AC.Player:addCatche(name, data)
+    if type(data) == "number" then
+        catche[name] = catche[name] + data
+    else
+        catche[name] = catche[name] or {}
+        table.insert(catche[name], data)
+    end
+end
+
+function AC.Player:getCache(name, fallbackData)
+    local fallback = fallbackData or false
+    return catche[name] or fallback
+end
+
+function AC.Player:clearCatche(name)
+    catche[name] = nil
+end
+
+
 ---@return boolean
 function AC.System:AwaitForLoad()
     while not AC.Player.isLoaded do

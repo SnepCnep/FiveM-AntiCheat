@@ -32,6 +32,7 @@ end)
 RegisterNetEvent("playerDropped", function(reason)
     if AC.Players[source] then
         AC.Players[source] = nil -- Remove player from table ( Memory management )
+        AC.System:ClearPlayerCatche(source) -- Clear player catches ( Memory management )
     end
     print("^2PlayerDropped^7 - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason .. "^7")
 end)
@@ -76,6 +77,77 @@ function AC.Players:checkPermission(source, permission)
     end
 
     return false
+end
+
+local catche = {}
+function AC.System:setCache(name, source, data)
+    if not catche[name] then
+        catche[name] = {}
+    end
+
+    if source == false then
+        catche[name] = data
+        return
+    end
+
+    catche[name][source] = data
+end
+
+function AC.System:getCache(name, source, fallbackData)
+    local fallback = fallbackData or false
+    if not catche[name] then
+        return fallback
+    end
+
+    if source == false then
+        return catche[name] or fallback
+    end
+
+    return catche[name][source] or fallback
+end
+
+function AC.System:addCatche(name, source, data)
+    if not catche[name] then
+        catche[name] = {}
+    end
+
+    if type(data) == "number" then
+        if not catche[name][source] or type(catche[name][source]) ~= "number" then
+            catche[name][source] = 0
+        end
+        catche[name][source] = catche[name][source] + data
+    else
+        catche[name][source] = catche[name][source] or {}
+        table.insert(catche[name][source], data)
+    end
+end
+
+function AC.System:clearCatche(name, source)
+    if type(name) == "table" then
+        for i = 1, #name do
+            catche[name[i]] = nil
+        end
+        return
+    end
+
+    if not catche[name] then
+        return
+    end
+
+    if source == false then
+        catche[name] = nil
+        return
+    end
+
+    catche[name][source] = nil
+end
+
+function AC.System:ClearPlayerCatche(source)
+    for k, v in pairs(catche) do
+        if v[source] then
+            catche[k][source] = nil
+        end
+    end
 end
 
 ---@diagnostic disable-next-line: duplicate-set-field

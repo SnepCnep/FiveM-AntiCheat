@@ -1,7 +1,7 @@
 Config = {}
-Config.Debugger = true -- [[ ~This disable the ban and kick system, only for debug purposes~ ]]
+Config.Debugger = true -- [[ ~This disable the ban and kick system, only for debug purposes~ ]] --
 Config.CheckForUpdates = true
-Config.LongLoadTime = 5 -- [[ In seconds ]]
+Config.LongLoadTime = 5 -- [[ In seconds ]] --
 
 Config.WhitelistedResource = {
     [""] = true,
@@ -17,7 +17,7 @@ Config.WhitelistedEvents = {
     ["__cfx_internal:commandFallback"] = true
 }
 
-Config.AntiBackdoor = true -- Only blockt http backdoors
+Config.AntiBackdoor = true -- Only blockt http & https backdoors
 Config.HttpFilter = true
 Config.AllowedUrls = {
     [""] = true
@@ -31,11 +31,17 @@ Config.AntiPropsSpawn = true
 Config.AntiVehiclesSpawn = true
 
 -- [[ Anti Spawn ]] --
-Config.AntiSpamVehicle = true -- Still in development
-Config.AntiSpamProps = true -- Still in development
-Config.AntiSpamPeds = true -- Still in development
-Config.AntiSpamParticles = true -- Still in development
-Config.AntiSpamTazer = true -- Still in development
+Config.AntiSpamVehicle = true
+Config.AntiSpamVehicleLimit = 10
+Config.AntiSpamProps = true
+Config.AntiSpamPropsLimit = 10
+Config.AntiSpamPeds = true
+Config.AntiSpamPedsLimit = 10
+
+
+-- Soon
+Config.AntiSpamParticles = true
+Config.AntiSpamTazer = true
 
 
 
@@ -65,6 +71,8 @@ Config.AntiInvisibility = true -- Still in development
     noclip
     invisible
     freecam
+    unban
+    baninfo
 
 ]]
 --[[
