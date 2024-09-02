@@ -55,6 +55,7 @@ Config.AntiHornboost = true
 Config.AntiSpectate = true
 Config.AntiFreecam = true
 Config.AntiGodmode = true
+Config.AntiRagdoll = true
 Config.AntiTazer = true
 Config.AntiVPN = true
 

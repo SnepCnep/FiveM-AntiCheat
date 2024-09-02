@@ -110,6 +110,12 @@ CreateThread(function()
             end
         end
 
+        if Config.AntiRagdoll then
+            if GetPedConfigFlag(playerPed, 89, true) then
+                AC.Player:banPlayer("Try to disable ragdoll!")
+            end
+        end
+
         if Config.AntiHornboost then
             if vehicle ~= 0 then
                 local vehicle = GetVehiclePedIsIn(playerPed, false)
