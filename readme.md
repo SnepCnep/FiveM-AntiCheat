@@ -1,4 +1,4 @@
-# AntiCheat for FiveM (GTA Roleplay)  
+# OpenSource AntiCheat for FiveM (GTA Roleplay)  
 **NOW IN BETA!** (Please report any bugs you find!)
 
 ## Status/Information
