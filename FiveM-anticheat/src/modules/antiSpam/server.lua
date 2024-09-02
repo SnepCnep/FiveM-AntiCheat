@@ -17,33 +17,36 @@ if not Config.AntiSpamVehicle and not Config.AntiSpamProps and not Config.AntiSp
             return
         end
 
-        local id = NetworkGetEntityOwner(entity)
+        local playerId = NetworkGetEntityOwner(entity)
         local entitytype = GetEntityType(entity)
 
         if entitytype == 1 and Config.AntiSpamPeds then
             -- Anti Spam Peds
-            AC.Player:addCatche("peds", 1)
-            local totalCreations = AC.Player:getCache("peds")
+            AC.Players:addCatche("peds", playerId, 1)
+            local totalCreations = AC.Players:getCache("peds", playerId, 0)
             
             if totalCreations > (Config.AntiSpamPedsLimit or 0) then
-                AC.Player:banPlayer("AntiSpam: Peds Spawn | Created " .. (totalCreations or "Error") .. " Peds.")
+                AC.Players:banPlayer("AntiSpam: peds Spawn | Created " .. (totalCreations or "Error") .. " peds.")
             end
+
         elseif entitytype == 2 and Config.AntiSpamVehicle then
             -- Anti Spam Vehicle
-            AC.Player:addCatche("vehicle", 1)
-            local totalCreations = AC.Player:getCache("vehicle")
+            AC.Players:addCatche("vehicle", playerId, 1)
+            local totalCreations = AC.Players:getCache("vehicle", playerId, 0)
             
-            if totalCreations > (Config.AntiSpamVehicleLimit or 0) then
-                AC.Player:banPlayer("AntiSpam: Vehicles Spawn | Created " .. (totalCreations or "Error") .. " vehicles.")
+            if totalCreations > (Config.AntiSpamPedsLimit or 0) then
+                AC.Players:banPlayer("AntiSpam: vehicle Spawn | Created " .. (totalCreations or "Error") .. " vehicle.")
             end
+
         elseif entitytype == 3 and Config.AntiSpamProps then
             -- Anti Spam Props
-            AC.Player:addCatche("props", 1)
-            local totalCreations = AC.Player:getCache("props")
-
-            if totalCreations > (Config.AntiSpamPropsLimit or 0) then
-                AC.Player:banPlayer("AntiSpam: Props Spawn | Created " .. (totalCreations or "Error") .. " Props.")
+            AC.Players:addCatche("props", playerId, 1)
+            local totalCreations = AC.Players:getCache("props", playerId, 0)
+            
+            if totalCreations > (Config.AntiSpamPedsLimit or 0) then
+                AC.Players:banPlayer("AntiSpam: props Spawn | Created " .. (totalCreations or "Error") .. " props.")
             end
+            
         end
     end)
 end

@@ -78,6 +78,70 @@ function AC.Players:checkPermission(source, permission)
     return false
 end
 
+local catche = {}
+function AC.System:setCache(name, source, data)
+    if not catche[name] then
+        catche[name] = {}
+    end
+
+    if source == false then
+        catche[name] = data
+        return
+    end
+
+    catche[name][source] = data
+end
+
+function AC.System:getCache(name, source, fallbackData)
+    local fallback = fallbackData or false
+    if not catche[name] then
+        return fallback
+    end
+
+    if source == false then
+        return catche[name] or fallback
+    end
+
+    return catche[name][source] or fallback
+end
+
+function AC.System:addCatche(name, source, data)
+    if not catche[name] then
+        catche[name] = {}
+    end
+
+    if type(data) == "number" then
+        if not catche[name][source] or type(catche[name][source]) ~= "number" then
+            catche[name][source] = 0
+        end
+        catche[name][source] = catche[name][source] + data
+    else
+        catche[name][source] = catche[name][source] or {}
+        table.insert(catche[name][source], data)
+    end
+end
+
+function AC.System:clearCatche(name, source)
+    if type(name) == "table" then
+        for i = 1, #name do
+            catche[name[i]] = nil
+        end
+        return
+    end
+
+    if not catche[name] then
+        return
+    end
+
+    if source == false then
+        catche[name] = nil
+        return
+    end
+
+    catche[name][source] = nil
+end
+
+
 ---@diagnostic disable-next-line: duplicate-set-field
 function AC.System:ExportHandler(exportName, exportFunc)
     AddEventHandler(('__cfx_export_anticheat_%s'):format(exportName), function(setCB)

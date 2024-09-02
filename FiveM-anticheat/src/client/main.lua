@@ -64,34 +64,26 @@ function AC.Player:kickPlayer(reason)
 end
 
 local catche = {}
-function AC.Player:setCache(string, data)
-    catche[string] = data
+function AC.Player:setCache(name, data)
+    catche[name] = data
 end
 
-function AC.Player:addCatche(string, data)
+function AC.Player:addCatche(name, data)
     if type(data) == "number" then
-        catche[string] = catche[string] + data
+        catche[name] = catche[name] + data
     else
-        catche[string] = catche[string] or {}
-        table.insert(catche[string], data)
+        catche[name] = catche[name] or {}
+        table.insert(catche[name], data)
     end
 end
 
-function AC.Player:getCache(string, fallbackData)
+function AC.Player:getCache(name, fallbackData)
     local fallback = fallbackData or false
-    return catche[string] or fallback
+    return catche[name] or fallback
 end
 
-function AC.Player:clearCatche(string)
-    if type(catche[string]) == "table" then
-        for k, _ in pairs(catche[string]) do
-            catche[string][k] = nil
-        end
-    elseif type(catche[string]) == "number" then
-        catche[string] = 0
-    else
-        catche[string] = nil
-    end
+function AC.Player:clearCatche(name)
+    catche[name] = nil
 end
 
 
