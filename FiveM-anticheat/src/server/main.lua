@@ -32,6 +32,7 @@ end)
 RegisterNetEvent("playerDropped", function(reason)
     if AC.Players[source] then
         AC.Players[source] = nil -- Remove player from table ( Memory management )
+        AC.System:ClearPlayerCatche(source) -- Clear player catches ( Memory management )
     end
     print("^2PlayerDropped^7 - Source: ^5" .. source .. " ^7- Name: ^5" .. GetPlayerName(source) .. " ^7- Reason: ^5" .. reason .. "^7")
 end)
@@ -141,6 +142,13 @@ function AC.System:clearCatche(name, source)
     catche[name][source] = nil
 end
 
+function AC.System:ClearPlayerCatche(source)
+    for k, v in pairs(catche) do
+        if v[source] then
+            catche[k][source] = nil
+        end
+    end
+end
 
 ---@diagnostic disable-next-line: duplicate-set-field
 function AC.System:ExportHandler(exportName, exportFunc)
