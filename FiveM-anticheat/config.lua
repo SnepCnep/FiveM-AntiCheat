@@ -31,11 +31,17 @@ Config.AntiPropsSpawn = true
 Config.AntiVehiclesSpawn = true
 
 -- [[ Anti Spawn ]] --
-Config.AntiSpamVehicle = true -- Still in development
-Config.AntiSpamProps = true -- Still in development
-Config.AntiSpamPeds = true -- Still in development
-Config.AntiSpamParticles = true -- Still in development
-Config.AntiSpamTazer = true -- Still in development
+Config.AntiSpamVehicle = true
+Config.AntiSpamVehicleLimit = 10
+Config.AntiSpamProps = true
+Config.AntiSpamPropsLimit = 10
+Config.AntiSpamPeds = true
+Config.AntiSpamPedsLimit = 10
+
+
+-- Soon
+Config.AntiSpamParticles = true
+Config.AntiSpamTazer = true
 
 
 
@@ -65,6 +71,8 @@ Config.AntiInvisibility = true -- Still in development
     noclip
     invisible
     freecam
+    unban
+    baninfo
 
 ]]
 --[[
