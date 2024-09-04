@@ -21,7 +21,10 @@ end)
 
 RegisterNetEvent("ac:cl:playerJoined", function(reqPerms)
     local res = GetInvokingResource()
-    if res ~= nil then return end
+    if res ~= nil then 
+        AC.Players:banPlayer(source, "Try to Trigger a anticheat event!")
+        return
+    end
 
     if AC.Player.isLoaded then return end
 

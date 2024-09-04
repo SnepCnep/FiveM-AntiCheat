@@ -82,10 +82,38 @@ end
 
 -- [//[ Anti Weapon Spawn ]\\] --
 if isServerSide then
-    -- Coming Soon
+    local _GiveWeaponToPed = GiveWeaponToPed
+    
+    function GiveWeaponToPed(ped, weaponHash, ammoCount, isHidden, bForceInHand) 
+        if GetResourceState(ACResourceName) == "started" then 
+            exports["anticheat"]:GiveWeaponToPed(weaponHash) 
+        end 
+        
+        return _GiveWeaponToPed(ped, weaponHash, ammoCount, isHidden, bForceInHand) 
+    end
+
+    local _RemoveWeaponFromPed = RemoveWeaponFromPed
+
+    function RemoveWeaponFromPed(ped, weaponHash)
+        if GetResourceState(ACResourceName) == "started" then
+            exports["anticheat"]:RemoveWeaponFromPed(weaponHash)
+        end
+
+        return _RemoveWeaponFromPed(ped, weaponHash)
+    end
+
+    local _RemoveAllPedWeapons = RemoveAllPedWeapons
+
+    function RemoveAllPedWeapons(ped)
+        if GetResourceState(ACResourceName) == "started" then
+            exports["anticheat"]:RemoveAllPedWeapons()
+        end
+
+        return _RemoveAllPedWeapons(ped)
+    end
 end
 
-if not isServerSide and GetResourceState("ox_inventory") ~= 'missing' then
+if not isServerSide then
     local _GiveWeaponToPed = GiveWeaponToPed
 
     function GiveWeaponToPed(ped, weaponHash, ammoCount, isHidden, bForceInHand)

@@ -150,7 +150,9 @@ function AC.System:ClearPlayerCatche(source)
     end
 end
 
----@diagnostic disable-next-line: duplicate-set-field
+--- @param exportName string
+--- @param exportFunc function
+---@diagnostic disable-next-line: duplicate-set-field 
 function AC.System:ExportHandler(exportName, exportFunc)
     AddEventHandler(('__cfx_export_anticheat_%s'):format(exportName), function(setCB)
         setCB(exportFunc)
