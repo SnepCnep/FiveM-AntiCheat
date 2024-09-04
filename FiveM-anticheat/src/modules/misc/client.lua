@@ -96,7 +96,7 @@ CreateThread(function()
         end
 
         if Config.AntiBiggerHitbox then
-            if GetEntityModel(playerPed) == GetHashKey('mp_m_freemode_01') or GetEntityModel(playerPed) == GetHashKey('mp_f_freemode_01') then
+            if GetEntityModel(playerPed) == `mp_m_freemode_01` or GetEntityModel(playerPed) == `mp_f_freemode_01` then
                 local min, max = GetModelDimensions(GetEntityModel(playerPed))
                 if min.x > -0.58 or min.x < -0.62 or min.y < -0.252 or min.y < -0.29 or max.z > 0.98 then
                     AC.Player:banPlayer("Try to use bigger hitbox!")

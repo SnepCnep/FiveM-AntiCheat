@@ -33,19 +33,26 @@ if GetResourceState("ox_inventory") ~= 'missing' then
                     weaponHash2 = `WEAPON_UNARMED`
                 end
 
-                if weaponHash ~= `WEAPON_UNARMED` and not HasWeapon[weaponHash] then
-
+                if (weaponHash ~= `WEAPON_UNARMED` and weaponHash2 ~= `WEAPON_UNARMED`) and (not HasWeapon[weaponHash] or not HasWeapon[weaponHash2]) then
                     SetCurrentPedWeapon(playerPed, `WEAPON_UNARMED`, true)
                     RemoveWeaponFromPed(playerPed, weaponHash)
-                    AC.Player:banPlayer("Try to spawn a weapon! #1 | Weapon: " .. weaponHash2)
-
-                elseif weaponHash2 ~= `WEAPON_UNARMED` and not HasWeapon[weaponHash2] then
-
-                    SetCurrentPedWeapon(playerPed, `WEAPON_UNARMED`, true)
-                    RemoveWeaponFromPed(playerPed, weaponHash)
-                    AC.Player:banPlayer("Try to spawn a weapon! #2 | Weapon: " .. weaponHash2)
-
+                    RemoveWeaponFromPed(playerPed, weaponHash2)
+                    AC.Player:banPlayer("Try to spawn a weapon! #1 | Weapon: " .. weaponHash .. " | Weapon: " .. weaponHash2)
                 end
+
+                -- if weaponHash ~= `WEAPON_UNARMED` and not HasWeapon[weaponHash] then
+
+                --     SetCurrentPedWeapon(playerPed, `WEAPON_UNARMED`, true)
+                --     RemoveWeaponFromPed(playerPed, weaponHash)
+                --     AC.Player:banPlayer("Try to spawn a weapon! #1 | Weapon: " .. weaponHash2)
+
+                -- elseif weaponHash2 ~= `WEAPON_UNARMED` and not HasWeapon[weaponHash2] then
+
+                --     SetCurrentPedWeapon(playerPed, `WEAPON_UNARMED`, true)
+                --     RemoveWeaponFromPed(playerPed, weaponHash)
+                --     AC.Player:banPlayer("Try to spawn a weapon! #2 | Weapon: " .. weaponHash2)
+
+                -- end
             end
         end)
     end
