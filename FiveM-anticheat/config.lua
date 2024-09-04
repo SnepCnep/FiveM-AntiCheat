@@ -37,7 +37,10 @@ Config.AntiSpamProps = true
 Config.AntiSpamPropsLimit = 10
 Config.AntiSpamPeds = true
 Config.AntiSpamPedsLimit = 10
-
+Config.AntiSpamTazer = true
+Config.AntiSpamTazerLimit = 10
+Config.AntiSpamExplosions = true
+Config.AntiSpamExplosionsLimit = 10
 
 -- Soon
 Config.AntiSpamParticles = true

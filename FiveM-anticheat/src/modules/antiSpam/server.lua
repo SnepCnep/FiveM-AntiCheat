@@ -49,26 +49,30 @@ if not Config.AntiSpamVehicle and not Config.AntiSpamProps and not Config.AntiSp
     end)
 end
 
-RegisterNetEvent("explosionEvent", function(sender)
-    local playerId = sender
-    AC.System:addCatche("explosions", playerId, 1)
-    local totalCreations = AC.System:getCache("explosions", playerId, 0)
+if Config.AntiSpamExplosions then
+    RegisterNetEvent("explosionEvent", function(sender)
+        local playerId = sender
+        AC.System:addCatche("explosions", playerId, 1)
+        local totalCreations = AC.System:getCache("explosions", playerId, 0)
 
-    if totalCreations > (Config.AntiSpamExplosionsLimit or 0) then
-        AC.System:banPlayer("AntiSpam: explosions | Created " .. (totalCreations or "Error") .. " explosions.")
-    end
-end)
-
-AddEventHandler("weaponDamageEvent", function(sender, data)
-    local getWeapon = data.weaponType
-    if getWeapon == `WEAPON_STUNGUN` then
-        AC.System:addCatche("tazer", sender, 1)
-        local totalCreations = AC.System:getCache("tazer", sender, 0)
-
-        if totalCreations > (Config.AntiSpamTazerLimit or 0) then
-            AC.System:banPlayer("AntiSpam: Tazer | Used " .. (totalCreations or "Error") .. " times.")
+        if totalCreations > (Config.AntiSpamExplosionsLimit or 0) then
+            AC.System:banPlayer("AntiSpam: explosions | Created " .. (totalCreations or "Error") .. " explosions.")
         end
-    end
-end)
+    end)
+end
+
+if Config.AntiSpamTazer then
+    AddEventHandler("weaponDamageEvent", function(sender, data)
+        local getWeapon = data.weaponType
+        if getWeapon == `WEAPON_STUNGUN` then
+            AC.System:addCatche("tazer", sender, 1)
+            local totalCreations = AC.System:getCache("tazer", sender, 0)
+
+            if totalCreations > (Config.AntiSpamTazerLimit or 0) then
+                AC.System:banPlayer("AntiSpam: Tazer | Used " .. (totalCreations or "Error") .. " times.")
+            end
+        end
+    end)
+end
 
 -- AddEventHandler(
