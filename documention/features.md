@@ -34,3 +34,4 @@
 - Anti AI 
 - Anti Heal
 - Anti vehicle Repair
+- OCR ( menu detection )
