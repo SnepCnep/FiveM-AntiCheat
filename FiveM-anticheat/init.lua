@@ -1,7 +1,7 @@
 local isServerSide = IsDuplicityVersion()
 local thisResource = GetCurrentResourceName()
 
-local ACResourceName = "FiveM-anticheat"
+local ACResourceName = "FiveM-anticheat" -- Change ONLY this to your resource name if you are using a different name.
 
 -- [//[ Safe Server Events ]\\] --
 if isServerSide then
