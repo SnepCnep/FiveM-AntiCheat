@@ -31,7 +31,9 @@
 - Anti Pickups
 - Anti Noclip / Fly
 - Anti Speedhack
-- Anti AI 
 - Anti Heal
 - Anti vehicle Repair
 - OCR ( menu detection )
+
+## !!!!
+Hackers can use oure custom functions if the enable a mode this whil be fixt! ( DONT WORRY ABOUT IT xD :) )

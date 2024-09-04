@@ -159,12 +159,17 @@ end
 
 local RegisteredCommands = {}
 function AC.System:RegisterCommand(command, callback, perms, consoleOnly)
+
+    if perms then
+        perms = "command.".. perms
+    end
     if not command or not callback then
         return
     end
     if RegisteredCommands[command] then
         return
     end
+    
     RegisteredCommands[command] = {
         perms = (perms or "console"), -- console means only console can use this command
         consoleOnly = (consoleOnly or true),

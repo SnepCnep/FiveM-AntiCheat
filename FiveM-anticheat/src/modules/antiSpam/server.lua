@@ -4,6 +4,7 @@ CreateThread(function()
             "vehicle",
             "props",
             "peds",
+            "explosions",
             "particles",
             "tazer"
         })
@@ -22,36 +23,52 @@ if not Config.AntiSpamVehicle and not Config.AntiSpamProps and not Config.AntiSp
 
         if entitytype == 1 and Config.AntiSpamPeds then
             -- Anti Spam Peds
-            AC.Players:addCatche("peds", playerId, 1)
-            local totalCreations = AC.Players:getCache("peds", playerId, 0)
-            
-            if totalCreations > (Config.AntiSpamPedsLimit or 0) then
-                AC.Players:banPlayer("AntiSpam: peds Spawn | Created " .. (totalCreations or "Error") .. " peds.")
-            end
+            AC.System:addCatche("peds", playerId, 1)
+            local totalCreations = AC.System:getCache("peds", playerId, 0)
 
+            if totalCreations > (Config.AntiSpamPedsLimit or 0) then
+                AC.System:banPlayer("AntiSpam: peds Spawn | Created " .. (totalCreations or "Error") .. " peds.")
+            end
         elseif entitytype == 2 and Config.AntiSpamVehicle then
             -- Anti Spam Vehicle
-            AC.Players:addCatche("vehicle", playerId, 1)
-            local totalCreations = AC.Players:getCache("vehicle", playerId, 0)
-            
-            if totalCreations > (Config.AntiSpamPedsLimit or 0) then
-                AC.Players:banPlayer("AntiSpam: vehicle Spawn | Created " .. (totalCreations or "Error") .. " vehicle.")
-            end
+            AC.System:addCatche("vehicle", playerId, 1)
+            local totalCreations = AC.System:getCache("vehicle", playerId, 0)
 
+            if totalCreations > (Config.AntiSpamPedsLimit or 0) then
+                AC.System:banPlayer("AntiSpam: vehicle Spawn | Created " .. (totalCreations or "Error") .. " vehicle.")
+            end
         elseif entitytype == 3 and Config.AntiSpamProps then
             -- Anti Spam Props
-            AC.Players:addCatche("props", playerId, 1)
-            local totalCreations = AC.Players:getCache("props", playerId, 0)
-            
+            AC.System:addCatche("props", playerId, 1)
+            local totalCreations = AC.System:getCache("props", playerId, 0)
+
             if totalCreations > (Config.AntiSpamPedsLimit or 0) then
-                AC.Players:banPlayer("AntiSpam: props Spawn | Created " .. (totalCreations or "Error") .. " props.")
+                AC.System:banPlayer("AntiSpam: props Spawn | Created " .. (totalCreations or "Error") .. " props.")
             end
-            
         end
     end)
 end
 
-RegisterNetEvent("", function()
+RegisterNetEvent("explosionEvent", function(sender)
+    local playerId = sender
+    AC.System:addCatche("explosions", playerId, 1)
+    local totalCreations = AC.System:getCache("explosions", playerId, 0)
 
-
+    if totalCreations > (Config.AntiSpamExplosionsLimit or 0) then
+        AC.System:banPlayer("AntiSpam: explosions | Created " .. (totalCreations or "Error") .. " explosions.")
+    end
 end)
+
+AddEventHandler("weaponDamageEvent", function(sender, data)
+    local getWeapon = data.weaponType
+    if getWeapon == `WEAPON_STUNGUN` then
+        AC.System:addCatche("tazer", sender, 1)
+        local totalCreations = AC.System:getCache("tazer", sender, 0)
+
+        if totalCreations > (Config.AntiSpamTazerLimit or 0) then
+            AC.System:banPlayer("AntiSpam: Tazer | Used " .. (totalCreations or "Error") .. " times.")
+        end
+    end
+end)
+
+-- AddEventHandler(

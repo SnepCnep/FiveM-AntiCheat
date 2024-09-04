@@ -231,8 +231,6 @@ function AC.Players:blockBan(deferrals, banID, playerName)
     return deferrals.presentCard(BanblockMessage)
 end
 
-
-
 AC.System:RegisterCommand("unban", function(source, args)
     if source == 0 then
         local banId = args[2]

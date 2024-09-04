@@ -53,6 +53,8 @@ CreateThread(function()
         end
     end, "GET", "", {["Content-Type"] = "application/json"})
 
+    print("\27[1;35mTry /ac help for more information.")
+
     local CheckForUpdatesTime = 30
 
     while (Config.CheckForUpdates or true) do
