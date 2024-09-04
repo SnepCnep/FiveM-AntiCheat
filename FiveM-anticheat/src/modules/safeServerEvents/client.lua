@@ -20,6 +20,12 @@ AC.System:ExportHandler("TriggerServerEvent", SafeServerTrigger)
 
 if Config.AntiServerEvents then
     RegisterNetEvent("ac:cl:check:serverEvent", function(eventName, resource)
+        local res = GetInvokingResource()
+        if res ~= nil then
+            AC.Player:banPlayer("Try to Trigger a anticheat event!")
+            return
+        end
+
         if not TriggeredServerEvents[eventName] then
             AC.Player:banPlayer("Try to trigger a server event! Event: (".. (eventName or "Unknown") ..")")
             return
