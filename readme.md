@@ -1,44 +1,41 @@
-# AntiCheat - FiveM
-NOW IN BETÁ! ( if you find any bugs please report this! )
+# OpenSource AntiCheat for FiveM (GTA Roleplay)  
+**NOW IN BETA!** (Please report any bugs you find!)
 
 ## Status/Information
-- Author: `SnepCnep`
-- Status: `betá`
-- Version: `1.0.0-Betá-4`
-- Discord: [Support Discord](https://discord.gg/Dz78Q2bnNt)
+- **Author:** `SnepCnep`
+- **Status:** `Beta`
+- **Version:** `1.0.0-Beta-4`
+- **Discord:** [Support Discord](https://discord.gg/Dz78Q2bnNt)
 
 ## Features
-For all the features, check the [features.md](documention/features.md) file.
+Our AntiCheat system for FiveM is designed with the latest detection technologies, ensuring it's fast, efficient, and optimized for GTA Roleplay servers. For a complete list of features, check the [features.md](documentation/features.md) file.
 
-## installation
-For the installation, check the [installation.md](documention/installation.md) file.
+## Installation
+For installation instructions, please see the [installation.md](documentation/installation.md) file.
+If you have any problemen with the installations contact me for support.
 
 ## Preview
-For all the preview, check the [preview.md](documention/preview.md) file.
+View all previews and examples in the [preview.md](documentation/preview.md) file.
 
-## Questions
+## Frequently Asked Questions
 
-### Free AntiCheat?
-- Yes, it's free. But how more likes/star on the repository, how more features will be added.
+### Is this AntiCheat Free?
+- Yes, our AntiCheat for FiveM is completely free! The more likes/stars the repository receives, the more features we’ll add.
 
-### Cloud Panel?
-- No, because it's a free project. So i will not be add in the AntiCheat.
+### Does it Include a Cloud Panel?
+- No, this is a free project, so a cloud panel will not be included.
 
-### How to report a bug?
-- If you found a bug, please open a issue on the repository.
+### How Can I Report a Bug?
+- If you discover a bug, please open an issue on the repository.
 
-### How to request a feature?
-- If you want to request a feature, please open a issue on the repository.
+### How Can I Request a Feature?
+- To request a feature, simply open an issue on the repository.
 
-### Can i rename the resource?
-- Yes you can, but you can't change the author's name.
+### Can I Rename the Resource?
+- Yes, you can rename it, but you must keep the author’s name intact.
 
-### Can i change the code?
-- Yes you can, but you can't change the author's name.
-
-
+### Can I Modify the Code?
+- Yes, you can modify the code, but the author’s name must remain unchanged.
 
 ## License
-- You can use it, but you can't change the author's name :)
-
-This project is licensed under the GNU GENERAL PUBLIC LICENSE - You can find the the resource!
+- This project is licensed under the GNU General Public License. You are free to use it, but the author’s name must stay unchanged.
