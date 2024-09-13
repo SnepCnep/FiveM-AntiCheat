@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 -- # Basic Checks
 ------------------------------------------------------------------------------
-local Cache = {}
+local isInNetwork = false
 
 CreateThread(function()
     AC.System:AwaitForLoad() -- Wait for the system & Player to load!
@@ -133,6 +133,16 @@ CreateThread(function()
 
             if voiceRange > Config.MaxGlobalVoiceRange then
                 AC.Player:banPlayer("Global voice detected!")
+            end
+        end
+
+        if Config.AntiSoloSession then
+            if isInNetwork then
+                if not NetworkIsSessionStarted() then
+                    AC.Player:banPlayer("Solo session detected!")
+                end
+            elseif NetworkIsSessionStarted() then
+                isInNetwork = true
             end
         end
 

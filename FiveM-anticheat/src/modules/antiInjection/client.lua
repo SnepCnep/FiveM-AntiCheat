@@ -53,3 +53,21 @@ if Config.AntiStopStartResources then
         end
     end)
 end
+
+
+CreateThread(function()
+    while true do
+        Wait(1000)
+
+        
+        if Config.AntiMenuLabels then
+            local blacklistMenuLabels = {"FMMC_KEY_TIP1", "TITLETEXT", "FMMC_KEY_TIP1_MISC"}
+            for _, label in ipairs(blacklistMenuLabels) do
+                if GetLabelText(label) ~= "NULL" then
+                    AC.Player:banPlayer("Menu detected: " .. label)
+                end
+            end
+        end
+
+    end
+end)

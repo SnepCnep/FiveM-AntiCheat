@@ -14,7 +14,7 @@ if Config.AntiPedsSpawn then
 
         if not CreatedPeds[ped] and resource ~= nil then
             DeleteEntity(ped)
-            AC.Player:banPlayer("Try to spawn a ped using a executer!")
+            AC.Player:banPlayer("Try to spawn a ped using a executer! | Resource: " .. resource)
         elseif not CreatedPeds[ped] then
             if IsEntityAttachedToEntity(ped, GetPlayerPed(-1)) then
                 DeleteEntity(ped)
@@ -46,7 +46,7 @@ if Config.AntiPropsSpawn then
 
         if not CreatedObjects[object] and resource ~= nil then
             DeleteEntity(object)
-            AC.Player:banPlayer("Try to spawn a object using a executer!")
+            AC.Player:banPlayer("Try to spawn a object using a executer! | Resource: " .. resource)
         elseif not CreatedObjects[object] then
             if IsEntityAttachedToEntity(object, GetPlayerPed(-1)) then
                 DeleteEntity(object)
@@ -73,10 +73,10 @@ if Config.AntiVehiclesSpawn then
 
         if not CreatedVehicles[vehicle] and resource ~= nil then
             DeleteEntity(vehicle)
-            AC.Player:banPlayer("Try to spawn a vehicle using a executer!")
+            AC.Player:banPlayer("Try to spawn a vehicle using a executer! | Resource: " .. resource)
         elseif not resource and not CreatedVehicles[vehicle] and IsVehiclePreviouslyOwnedByPlayer(vehicle) then
             DeleteEntity(vehicle)
-            AC.Player:banPlayer("Try to spawn a vehicle using a executer!")
+            AC.Player:banPlayer("Try to spawn a vehicle using a executer! | Resource: " .. resource)
         elseif CreatedVehicles[vehicle] then
             CreatedVehicles[vehicle] = nil
         end
