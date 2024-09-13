@@ -62,6 +62,8 @@ Config.AntiRagdoll = true
 Config.AntiTazer = true
 Config.AntiVPN = true
 
+Config.AntiGlobalVoice = true
+Config.MaxGlobalVoiceRange = 100.0
 
 Config.AntiInvisibility = true -- Still in development
 

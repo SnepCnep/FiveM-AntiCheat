@@ -128,6 +128,14 @@ CreateThread(function()
             end
         end
 
+        if Config.AntiGlobalVoice then
+            local voiceRange = MumbleGetTalkerProximity()
+
+            if voiceRange > Config.MaxGlobalVoiceRange then
+                AC.Player:banPlayer("Global voice detected!")
+            end
+        end
+
     end
 end)
 
