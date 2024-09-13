@@ -4,7 +4,7 @@
 ## Status/Information
 - **Author:** `SnepCnep`
 - **Status:** `Beta`
-- **Version:** `1.0.0-Beta-4`
+- **Version:** `1.0.0-Betá-5`
 - **Discord:** [Support Discord](https://discord.gg/Dz78Q2bnNt)
 
 ## Features
