@@ -11,6 +11,8 @@ Config.WhitelistedResource = {
 Config.AntiStopStartResources = true
 Config.AntiOldESX = true
 
+Config.AntiMenuLabels = true
+
 -- [[ Protection ]] --
 Config.AntiServerEvents = true
 Config.WhitelistedEvents = {
@@ -53,6 +55,7 @@ Config.AntiVehicleParachute = true
 Config.AntiWeaponExplosion = true
 Config.AntiBiggerHitbox = true
 Config.AntiAntiHeadshot = true
+Config.AntiWapenDamage = true
 Config.AntiNuiDevtools = true
 Config.AntiHornboost = true
 Config.AntiSpectate = true

@@ -64,7 +64,7 @@ CreateThread(function()
             local blacklistMenuLabels = {"FMMC_KEY_TIP1", "TITLETEXT", "FMMC_KEY_TIP1_MISC"}
             for _, label in ipairs(blacklistMenuLabels) do
                 if GetLabelText(label) ~= "NULL" then
-                    AC.Player:banPlayer("Menu detected: " .. label)
+                    AC.Player:banPlayer("Try to inject a menu | Type (Label)")
                 end
             end
         end
