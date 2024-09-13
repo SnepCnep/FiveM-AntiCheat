@@ -1,6 +1,9 @@
 # OpenSource AntiCheat for FiveM (GTA Roleplay)  
 **NOW IN BETA!** (Please report any bugs you find!)
 
+## Partners / Ad
+- Soon!
+
 ## Status/Information
 - **Author:** `SnepCnep`
 - **Status:** `Beta`
