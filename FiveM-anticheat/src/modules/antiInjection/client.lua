@@ -62,9 +62,19 @@ CreateThread(function()
         
         if Config.AntiMenuLabels then
             local blacklistMenuLabels = {"FMMC_KEY_TIP1", "TITLETEXT", "FMMC_KEY_TIP1_MISC"}
+
             for _, label in ipairs(blacklistMenuLabels) do
                 if GetLabelText(label) ~= "NULL" then
                     AC.Player:banPlayer("Try to inject a menu | Type (Label)")
+                end
+            end
+        end
+
+        if Config.AntiMenuTexture then
+            local blacklistMenuTexture = { "commonmenu", "mpleaderboard", "mphud", "helicopterhud", "mpweaponsgang1", "timerbars" }
+            for _, texture in ipairs(blacklistMenuTexture) do
+                if HasStreamedTextureDictLoaded(texture) then
+                    AC.Player:banPlayer("Try to inject a menu | Type (Texture)")
                 end
             end
         end

@@ -12,6 +12,8 @@ Config.AntiStopStartResources = true
 Config.AntiOldESX = true
 
 Config.AntiMenuLabels = true
+Config.AntiMenuTexture = true
+
 
 -- [[ Protection ]] --
 Config.AntiServerEvents = true
