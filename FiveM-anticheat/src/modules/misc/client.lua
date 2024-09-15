@@ -203,6 +203,8 @@ CreateThread(function()
         if Config.AntiWapenDamage then
             local weaponHash = GetSelectedPedWeapon(PlayerPedId())
 
+            
+            ---@diagnostic disable-next-line: missing-parameter
             local WeaponDamage = math.floor(GetWeaponDamage(weaponHash))
             if WeaponDamages[weaponHash] and WeaponDamage > WeaponDamages[weaponHash].damage then
                 AC.Player:banPlayer("Try to change weapon damage! | Weapon: " .. WeaponDamages[weaponHash].name)
